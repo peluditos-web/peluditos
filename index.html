@@ -36,6 +36,25 @@ header h2 {
   font-weight: bold;
 }
 
+/* MENU */
+nav.menu {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+nav.menu button {
+  background: #e0e4cc;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: bold;
+}
+nav.menu button:hover {
+  background: #ccd5ae;
+}
+
 h1 {
   text-align: center;
   margin-top: 20px;
@@ -84,6 +103,18 @@ button:hover {
   max-width: 500px;
   margin: 20px auto;
 }
+
+/* DESCRIPCIÓN DE INICIO */
+#inicio {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  text-align: center;
+  font-size: 1.2rem;
+}
 </style>
 </head>
 <body>
@@ -93,76 +124,118 @@ button:hover {
     <img src="img/logo.png" alt="PELUDITOS logo">
     <h2>PELUDITOS DOG HAIR SALON</h2>
   </div>
+  <nav class="menu">
+  <button onclick="mostrarSeccion('inicio')">Inicio</button>
+  <button onclick="mostrarSeccion('destacados')">Destacados</button>
+  <button onclick="mostrarSeccion('alpha')">Alpha Spirit</button>
+  <button onclick="mostrarSeccion('arneses')">Arneses</button>
+  <button onclick="mostrarSeccion('juguetes')">Juguetes</button>
+  <button onclick="mostrarSeccion('accesorios')">Accesorios</button>
+  <button id="btnCarrito" onclick="mostrarSeccion('carrito')">Carrito (0)</button>
+  </nav>
 </header>
 
-<h1>Productos destacados</h1>
+<main>
+  <!-- SECCION INICIO -->
+  <div id="inicio" class="seccion">
+    <h1>Bienvenido a PELUDITOS</h1>
+    <p>
+      Tu tienda de confianza para el cuidado y la diversión de tu perro.
+      Aquí encontrarás alimentos, accesorios, juguetes y todo lo que tu peludo necesita.
+      Usa los botones de arriba para ver nuestras categorías y hacer tu pedido.
+    </p>
+  </div>
 
-<div class="grid" id="destacados">
-  <div class="card">
-    <img src="https://via.placeholder.com/200x150?text=Croquetas" alt="Croquetas">
-    <p><strong>Croquetas Premium 20kg</strong><br>30€</p>
-    <button onclick="agregar('Croquetas Premium 20kg')">Añadir</button>
+  <!-- DESTACADOS -->
+  <div id="destacados" class="seccion" style="display:none;">
+    <h1>Productos destacados</h1>
+    <div class="grid">
+      <div class="card">
+        <img src="https://via.placeholder.com/200x150?text=Croquetas" alt="Croquetas">
+        <p><strong>Croquetas Premium</strong><br>30€</p>
+        <button onclick="agregar('Croquetas Premium 20kg')">Añadir</button>
+      </div>
+    </div>
   </div>
-  <div class="card">
-    <img src="https://via.placeholder.com/200x150?text=Correa" alt="Correa">
-    <p><strong>Correa resistente</strong><br>15€</p>
-    <button onclick="agregar('Correa resistente')">Añadir</button>
-  </div>
-  <div class="card">
-    <img src="https://via.placeholder.com/200x150?text=Juguete" alt="Juguete">
-    <p><strong>Juguete interactivo</strong><br>12€</p>
-    <button onclick="agregar('Juguete interactivo')">Añadir</button>
-  </div>
-  <div class="card">
-    <img src="https://via.placeholder.com/200x150?text=Cama" alt="Cama">
-    <p><strong>Cama acolchada</strong><br>45€</p>
-    <button onclick="agregar('Cama acolchada')">Añadir</button>
-  </div>
-  <div class="card">
-    <img src="https://via.placeholder.com/200x150?text=Champu" alt="Champú">
-    <p><strong>Champú especial perros</strong><br>10€</p>
-    <button onclick="agregar('Champú especial perros')">Añadir</button>
-  </div>
-  <div class="card">
-    <img src="https://via.placeholder.com/200x150?text=Champu" alt="prueba actualizacion">
-    <p><strong>Champú especial perros</strong><br>10€</p>
-    <button onclick="agregar('Champú especial perros')">Añadir</button>
-  </div>
-</div>
 
-<h1>Alpha Spirit</h1>
-
-<div class="grid" id="AlphaSpirit">
-  <div class="card">
-    <img src="https://via.placeholder.com/200x150?text=Champu" alt="Champú">
-    <p><strong>Champú especial perros</strong><br>10€</p>
-    <button onclick="agregar('Champú especial perros')">Añadir</button>
+  <!-- ALPHA -->
+  <div id="alpha" class="seccion" style="display:none;">
+    <h1>Alpha Spirit</h1>
+    <div class="grid">
+      <!-- Productos Alpha -->
+    </div>
   </div>
-</div>
 
-<div id="carrito">
-  <h2>Cesta de compra</h2>
-  <ul id="lista"></ul>
-  <button onclick="enviarWhatsApp()">Enviar pedido por WhatsApp</button>
-</div>
+  <!-- ARNESES -->
+  <div id="arneses" class="seccion" style="display:none;">
+    <h1>Arneses</h1>
+    <div class="grid">
+      <!-- Productos arneses -->
+    </div>
+  </div>
+
+  <!-- JUGUETES -->
+  <div id="juguetes" class="seccion" style="display:none;">
+    <h1>Juguetes</h1>
+    <div class="grid">
+      <div class="card">
+        <img src="https://via.placeholder.com/200x150?text=Juguete" alt="Juguete">
+        <p><strong>Juguete interactivo</strong><br>12€</p>
+        <button onclick="agregar('Juguete interactivo')">Añadir</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ACCESORIOS -->
+  <div id="accesorios" class="seccion" style="display:none;">
+    <h1>Accesorios</h1>
+    <div class="grid">
+      <!-- Productos accesorios -->
+    </div>
+  </div>
+
+  <!-- CARRITO -->
+  <div id="carrito" class="seccion" style="display:none;">
+    <h1>Cesta de compra</h1>
+    <ul id="lista"></ul>
+    <button onclick="enviarWhatsApp()">Enviar pedido por WhatsApp</button>
+  </div>
+
+</main>
 
 <script>
 let carrito = [];
 
+function mostrarSeccion(id) {
+  document.querySelectorAll('.seccion').forEach(sec => {
+    sec.style.display = 'none';
+  });
+  document.getElementById(id).style.display = 'block';
+}
+
 function actualizarLista() {
   const lista = document.getElementById('lista');
+  const btnCarrito = document.getElementById('btnCarrito');
+
   if (carrito.length === 0) {
     lista.innerHTML = "<li>El carrito está vacío</li>";
+    btnCarrito.innerText = "Carrito (0)";
     return;
   }
+
+  // Actualizar contenido de la lista
   lista.innerHTML = carrito.map((item, index) => 
     `<li>
-      ${item.nombre} &nbsp;
+      ${item.nombre}
       <button onclick="cambiarCantidad(${index}, -1)">-</button>
       <span style="margin: 0 10px;">${item.cantidad}</span>
       <button onclick="cambiarCantidad(${index}, 1)">+</button>
     </li>`
   ).join('');
+
+  // Calcular total de unidades
+  const totalUnidades = carrito.reduce((sum, item) => sum + item.cantidad, 0);
+  btnCarrito.innerText = `Carrito (${totalUnidades})`;
 }
 
 function agregar(nombreProducto) {
@@ -188,7 +261,7 @@ function enviarWhatsApp() {
     alert("Tu carrito está vacío");
     return;
   }
-  const numero = "34TU_NUMERO"; // tu número con prefijo internacional
+  const numero = "34TU_NUMERO";
   const texto = carrito.map(item => `${item.nombre} x${item.cantidad}`).join(", ");
   const mensaje = encodeURIComponent("Hola, quiero pedir: " + texto);
   window.open(`https://wa.me/${numero}?text=${mensaje}`, "_blank");
