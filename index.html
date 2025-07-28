@@ -19,14 +19,15 @@ header {
   padding: 10px 20px;
 }
 .header-content {
-  max-width: 1000px;
+  max-width: 600px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   gap: 70px;
 }
 header img {
-  height: 200px;
+  max-width: 120px;
+  height: auto;
   border-radius: 8px;
 }
 header h2 {
@@ -254,6 +255,7 @@ button:hover {
         <button onclick="toggleDescripcion(this)">Ver descripción</button>
         <div class="descripcion" style="display: none; margin-top: 10px; font-size: 0.9rem; text-align: left;">
           <p>Comida natural para perros</p>
+            <ul>
             <li>100% natural: Sin cereales, gluten ni harinas cárnicas</li>
             <li>No extrusionado: Cocinado a baja temperatura con tecnología Tenderize que conserva nutrientes</li>
             <li>Ingredientes frescos: 70% carne y pescado frescos (cerdo, pollo, pescado azul)</li>
@@ -261,25 +263,11 @@ button:hover {
             <li>Sin grasas añadidas: Solo grasas naturales de carne y pescado</li>
             <li>Origen español: Ingredientes de empresas locales</li>
             <li>Beneficios: Más energía, salud digestiva y pelaje brillante</li>
+          </ul>
         </div>
       </div>
 
-      <!-- Producto Alpha Spirit -->
-       <div class="card">
-        <img src="https://via.placeholder.com/200x150?text=Croquetas" alt="Croquetas">
-       <p><strong>Croquetas Premium</strong><br>30€</p>
-        <button onclick="agregarDesdeElemento(this)" data-nombre="Croq aaaaaaaum" data-precio="30">Añadir</button>
-       <button onclick="toggleDescripcion(this)">Ver descripción</button>
-
-        <div class="descripcion" style="display: none; margin-top: 10px; font-size: 0.9rem;">
-          <p>Alimento natural sin cereales, ideal para perros adultos con digestión sensible.</p>
-          <ul>
-            <li>Formato: 20kg</li>
-            <li>Rico en proteínas animales</li>
-            <li>Sin colorantes ni conservantes</li>
-          </ul>
-       </div>
-      </div>
+      
 
     </div>
   </div>
