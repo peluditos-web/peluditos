@@ -40,7 +40,9 @@ header h2 {
 nav.menu {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  flex-wrap: wrap;
+  padding: 0 10px;
+  gap: 5px;
   margin: 10px 0;
 }
 nav.menu button {
@@ -63,7 +65,7 @@ h1 {
 /* GRID DE PRODUCTOS */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 20px;
   padding: 20px;
 }
@@ -92,18 +94,12 @@ button {
 button:hover {
   background: #b7c293;
 }
-
-/* CARRITO */
-#carrito {
-  background: white;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  text-align: center;
-  max-width: 500px;
-  margin: 20px auto;
+.card .descripcion {
+  transition: all 0.3s ease;
+  background: #f2f2f2;
+  padding: 10px;
+  border-radius: 8px;
 }
-
 /* DESCRIPCIÓN DE INICIO */
 #inicio {
   max-width: 800px;
@@ -115,6 +111,60 @@ button:hover {
   text-align: center;
   font-size: 1.2rem;
 }
+  
+/* CARRITO */
+#carrito {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  text-align: center;
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+#lista {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+.producto-carrito, .total-carrito {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+.producto-carrito .nombre {
+  text-align: left;
+}
+
+.total-carrito {
+  grid-column: 1 / -1;
+  text-align: right;
+  font-size: 1.2rem;
+  padding-top: 15px;
+  border-top: 2px solid #333;
+}
+
+.producto-carrito .botones button {
+  padding: 4px 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
+}
+
+.producto-carrito .botones button:hover {
+  background-color: #ddd;
+}
+
 </style>
 </head>
 <body>
@@ -127,7 +177,7 @@ button:hover {
   <nav class="menu">
   <button onclick="mostrarSeccion('inicio')">Inicio</button>
   <button onclick="mostrarSeccion('destacados')">Destacados</button>
-  <button onclick="mostrarSeccion('alpha')">Alpha Spirit</button>
+  <button onclick="mostrarSeccion('piensos')">Piensos</button>
   <button onclick="mostrarSeccion('arneses')">Arneses</button>
   <button onclick="mostrarSeccion('juguetes')">Juguetes</button>
   <button onclick="mostrarSeccion('accesorios')">Accesorios</button>
@@ -149,20 +199,88 @@ button:hover {
   <!-- DESTACADOS -->
   <div id="destacados" class="seccion" style="display:none;">
     <h1>Productos destacados</h1>
-    <div class="grid">
-      <div class="card">
-        <img src="https://via.placeholder.com/200x150?text=Croquetas" alt="Croquetas">
-        <p><strong>Croquetas Premium</strong><br>30€</p>
-        <button onclick="agregar('Croquetas Premium 20kg')">Añadir</button>
-      </div>
+  <div class="grid">
+    <div class="card">
+      <img src="https://via.placeholder.com/200x150?text=Croquetas" alt="Croquetas">
+      <p><strong>Croquetas Premium</strong><br>30€</p>
+      <button onclick="agregarDesdeElemento(this)" data-nombre="Croquetas Premium" data-precio="30">Añadir</button>
+      <button onclick="toggleDescripcion(this)">Ver descripción</button>
+
+        <div class="descripcion" style="display: none; margin-top: 10px; font-size: 0.9rem;">
+          <p>Alimento natural sin cereales, ideal para perros adultos con digestión sensible.</p>
+          <ul>
+            <li>Formato: 20kg</li>
+            <li>Rico en proteínas animales</li>
+            <li>Sin colorantes ni conservantes</li>
+          </ul>
+       </div>
     </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/200x150?text=Croquetas" alt="Croquetas">
+      <p><strong>Croquetas Premium</strong><br>30€</p>
+      <button onclick="agregarDesdeElemento(this)" data-nombre="Croquetas Premium" data-precio="30">Añadir</button>
+      <button onclick="toggleDescripcion(this)">Ver descripción</button>
+
+        <div class="descripcion" style="display: none; margin-top: 10px; font-size: 0.9rem;">
+          <p>Alimento natural sin cereales, ideal para perros adultos con digestión sensible.</p>
+          <ul>
+            <li>Formato: 20kg</li>
+            <li>Rico en proteínas animales</li>
+            <li>Sin colorantes ni conservantes</li>
+          </ul>
+       </div>
+    </div>
+    </div>
+
   </div>
 
-  <!-- ALPHA -->
-  <div id="alpha" class="seccion" style="display:none;">
-    <h1>Alpha Spirit</h1>
+  <!-- PIENSOS -->
+  <div id="piensos" class="seccion" style="display:none;">
+    <h1>Piensos</h1>
     <div class="grid">
-      <!-- Productos Alpha -->
+      <!-- Producto Alpha Spirit -->
+       <div class="card">
+        <img src="piensos/IMG_1199.PNG" alt="7days fórmula AS">
+        <p><strong>THE ONLY ONE - 7days fórmula by Alpha Spirit</strong></p>
+
+        <label for="formato-pienso">Formato:</label>
+        <select id="formato-pienso">
+          <option value="12" data-precio="55" data-nombre-corto="7days 12kg">12 kg - 55€</option>
+          <option value="3" data-precio="19.95" data-nombre-corto="7days 3kg">3 kg - 19,95€</option>
+        </select>
+        <button onclick="agregarConFormato(this)">Añadir</button>
+        <!-- Descripcion producto -->
+        <button onclick="toggleDescripcion(this)">Ver descripción</button>
+        <div class="descripcion" style="display: none; margin-top: 10px; font-size: 0.9rem; text-align: left;">
+          <p>Comida natural para perros</p>
+            <li>100% natural: Sin cereales, gluten ni harinas cárnicas</li>
+            <li>No extrusionado: Cocinado a baja temperatura con tecnología Tenderize que conserva nutrientes</li>
+            <li>Ingredientes frescos: 70% carne y pescado frescos (cerdo, pollo, pescado azul)</li>
+            <li>Alta palatabilidad y digestibilidad</li>
+            <li>Sin grasas añadidas: Solo grasas naturales de carne y pescado</li>
+            <li>Origen español: Ingredientes de empresas locales</li>
+            <li>Beneficios: Más energía, salud digestiva y pelaje brillante</li>
+        </div>
+      </div>
+
+      <!-- Producto Alpha Spirit -->
+       <div class="card">
+        <img src="https://via.placeholder.com/200x150?text=Croquetas" alt="Croquetas">
+       <p><strong>Croquetas Premium</strong><br>30€</p>
+        <button onclick="agregarDesdeElemento(this)" data-nombre="Croq aaaaaaaum" data-precio="30">Añadir</button>
+       <button onclick="toggleDescripcion(this)">Ver descripción</button>
+
+        <div class="descripcion" style="display: none; margin-top: 10px; font-size: 0.9rem;">
+          <p>Alimento natural sin cereales, ideal para perros adultos con digestión sensible.</p>
+          <ul>
+            <li>Formato: 20kg</li>
+            <li>Rico en proteínas animales</li>
+            <li>Sin colorantes ni conservantes</li>
+          </ul>
+       </div>
+      </div>
+
     </div>
   </div>
 
@@ -181,7 +299,11 @@ button:hover {
       <div class="card">
         <img src="https://via.placeholder.com/200x150?text=Juguete" alt="Juguete">
         <p><strong>Juguete interactivo</strong><br>12€</p>
-        <button onclick="agregar('Juguete interactivo')">Añadir</button>
+        <button 
+         onclick="agregarDesdeElemento(this)" 
+         data-nombre="Juguete interactivo" 
+          data-precio="13"
+        >Añadir</button>
       </div>
     </div>
   </div>
@@ -198,11 +320,29 @@ button:hover {
   <div id="carrito" class="seccion" style="display:none;">
     <h1>Cesta de compra</h1>
     <ul id="lista"></ul>
-    <button onclick="enviarWhatsApp()">Enviar pedido por WhatsApp</button>
-  </div>
+   
+    <div style="margin-top: 30px;">
+      <h3>Finalizar pedido</h3>
+      <p style="font-size: 0.9rem; color: #666;">
+     Rellena tus datos y pulsa "Enviar pedido". Te responderemos lo antes posible.
+      </p>
 
+      <form action="https://formspree.io/f/xgvzywpk" method="POST" onsubmit="return prepararEnvio()">
+        <input type="text" name="nombre" placeholder="Tu nombre" required style="width:90%; padding:8px; margin-bottom:10px;"><br>
+        <input type="email" name="email" placeholder="Tu email" required style="width:90%; padding:8px; margin-bottom:10px;"><br>
+        <input type="tel" name="telefono" placeholder="Tu teléfono" required style="width:90%; padding:8px; margin-bottom:10px;"><br>
+
+       <label for="pedido">Tu pedido:</label><br>
+        <textarea name="pedido" id="pedido" readonly style="width:90%; height:150px; padding:8px; margin-bottom:10px;"></textarea><br>
+
+       <button type="submit">Enviar pedido</button>
+      </form>
+    </div>
+  </div>
 </main>
 
+
+<!-- SCRIPT -->
 <script>
 let carrito = [];
 
@@ -223,30 +363,66 @@ function actualizarLista() {
     return;
   }
 
-  // Actualizar contenido de la lista
-  lista.innerHTML = carrito.map((item, index) => 
-    `<li>
-      ${item.nombre}
-      <button onclick="cambiarCantidad(${index}, -1)">-</button>
-      <span style="margin: 0 10px;">${item.cantidad}</span>
-      <button onclick="cambiarCantidad(${index}, 1)">+</button>
-    </li>`
-  ).join('');
+  let total = 0;
+  lista.innerHTML = carrito.map((item, index) => {
+    const subtotal = item.precio * item.cantidad;
+    total += subtotal;
+    return `
+    <li class="producto-carrito">
+      <span class="nombre">${item.nombre}</span>
+      <span class="precio">${item.precio.toFixed(2)}€</span>
+      <span class="cantidad">x${item.cantidad}</span>
+      <span class="subtotal">${subtotal.toFixed(2)}€</span>
+      <span class="botones">
+        <button onclick="cambiarCantidad(${index}, -1)">-</button>
+        <button onclick="cambiarCantidad(${index}, 1)">+</button>
+      </span>
+    </li>`;
+  }).join('');
 
-  // Calcular total de unidades
+  lista.innerHTML += `<li class="total-carrito"><strong>Total: ${total.toFixed(2)}€</strong></li>`;
+
   const totalUnidades = carrito.reduce((sum, item) => sum + item.cantidad, 0);
   btnCarrito.innerText = `Carrito (${totalUnidades})`;
 }
 
-function agregar(nombreProducto) {
+function agregarConFormato(boton) {
+  const card = boton.closest(".card");
+  const select = card.querySelector("select");
+  const formatoSeleccionado = select.options[select.selectedIndex];
+
+  const nombreProducto = card.querySelector("strong").innerText + " " + formatoSeleccionado.value + "kg";
+  const precio = parseFloat(formatoSeleccionado.dataset.precio);
+
   const productoExistente = carrito.find(item => item.nombre === nombreProducto);
   if (productoExistente) {
     productoExistente.cantidad++;
   } else {
-    carrito.push({ nombre: nombreProducto, cantidad: 1 });
+    carrito.push({ nombre: nombreProducto, cantidad: 1, precio: precio });
+  }
+
+  actualizarLista();
+}
+function agregarConFormato(boton) {
+  const card = boton.closest(".card");
+  const select = card.querySelector("select");
+  const formatoSeleccionado = select.options[select.selectedIndex];
+
+  const nombreCorto = formatoSeleccionado.getAttribute("data-nombre-corto");
+  
+  const nombreProducto = nombreCorto || (card.querySelector("strong").innerText + " " + formatoSeleccionado.value + "kg");
+  
+  const precio = parseFloat(formatoSeleccionado.dataset.precio);
+
+  const productoExistente = carrito.find(item => item.nombre === nombreProducto);
+  if (productoExistente) {
+    productoExistente.cantidad++;
+  } else {
+    carrito.push({ nombre: nombreProducto, cantidad: 1, precio: precio });
   }
   actualizarLista();
 }
+
 
 function cambiarCantidad(index, cambio) {
   carrito[index].cantidad += cambio;
@@ -261,11 +437,46 @@ function enviarWhatsApp() {
     alert("Tu carrito está vacío");
     return;
   }
-  const numero = "34TU_NUMERO";
-  const texto = carrito.map(item => `${item.nombre} x${item.cantidad}`).join(", ");
-  const mensaje = encodeURIComponent("Hola, quiero pedir: " + texto);
+
+  let total = 0;
+  const texto = carrito.map(item => {
+    const subtotal = item.precio * item.cantidad;
+    total += subtotal;
+    return `${item.nombre} x${item.cantidad} = ${subtotal}€`;
+  }).join("\n");
+
+  const mensaje = encodeURIComponent("Hola, quiero pedir:\n" + texto + `\nTOTAL: ${total}€`);
+  const numero = "34615300815";
   window.open(`https://wa.me/${numero}?text=${mensaje}`, "_blank");
 }
+
+function prepararEnvio() {
+  if (carrito.length === 0) {
+    alert("Tu carrito está vacío");
+    return false;
+  }
+
+  let total = 0;
+  const textoPedido = carrito.map(item => {
+    const subtotal = item.precio * item.cantidad;
+    total += subtotal;
+    return `${item.nombre} x${item.cantidad} = ${subtotal}€`;
+  }).join("\n");
+
+  document.getElementById("pedido").value = `${textoPedido}\n\nTOTAL: ${total}€`;
+  return true;
+}
+function toggleDescripcion(boton) {
+  const descripcion = boton.nextElementSibling;
+  if (descripcion.style.display === "none") {
+    descripcion.style.display = "block";
+    boton.innerText = "Ver menos";
+  } else {
+    descripcion.style.display = "none";
+    boton.innerText = "Ver descripción";
+  }
+}
+
 </script>
 
 </body>
