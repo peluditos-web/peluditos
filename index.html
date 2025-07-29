@@ -348,11 +348,6 @@ header {
 /* ==================== LÓGICA ==================== */
 let carrito = [];
 
-// Mostrar/ocultar menú lateral
-function toggleMenu() {
-  document.getElementById('sideMenu').classList.toggle('show');
-}
-
 // Cambiar sección visible
 function mostrarSeccion(id) {
   document.querySelectorAll('.seccion').forEach(sec => sec.style.display = 'none');
@@ -436,28 +431,30 @@ function toggleDescripcion(boton) {
   boton.textContent = visible ? "Ver descripción" : "Ver menos";
 }
 
-const menu = document.getElementById('side-menu');
-const toggle = document.getElementById('togglemenu');
+const menu = document.getElementById('sideMenu');
+const menuButton = document.querySelector('.menu-button');
 
-// Abre/cierra el menú
-toggle.addEventListener('click', (e) => {
-  e.stopPropagation(); // evita que el clic cierre el menú inmediatamente
-  menu.classList.toggle('show');
-});
+// Mostrar/ocultar menú lateral
+function toggleMenu() {
+  document.getElementById('sideMenu').classList.toggle('show');
+}
 
-// Cierra el menú al hacer clic fuera de él
+// Cierra el menú si se hace clic fuera de él
 document.addEventListener('click', (e) => {
+  // Solo actuar si el menú está visible
   if (menu.classList.contains('show')) {
-    
-    if (!menu.contains(e.target) && e.target !== toggle) {
+    const clicDentroMenu = menu.contains(e.target);
+    const clicEnBotonMenu = menuButton.contains(e.target);
+
+    if (!clicDentroMenu && !clicEnBotonMenu) {
       menu.classList.remove('show');
     }
   }
 });
 
-// Opcional: si se hace clic en una opción del menú, también se cierra
+// Opcional: al hacer clic en una opción del menú también lo cierra
 menu.addEventListener('click', (e) => {
-  if (e.target.tagName === 'BUTTON' || e.target.tagName === 'A') {
+  if (e.target.tagName === 'BUTTON') {
     menu.classList.remove('show');
   }
 });
