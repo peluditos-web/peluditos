@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>PELUDITOS - Dog Hair Salon</title>
 <style>
+/* ==================== ESTILOS GENERALES ==================== */
 body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
@@ -12,57 +13,112 @@ body {
   background: #f9f9f9;
   color: #333;
 }
+button {
+  cursor: pointer;
+  border: none;
+}
 
-/* ENCABEZADO */
+/* ==================== HEADER ==================== */
 header {
   background: #CCD5AE;
-  padding: 10px 20px;
 }
-.header-content {
-  justify-content: center;
-  align-items: center;  
+.header-bar {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 70px;
-}
-header img {
-  max-width: 200px;
-  height: auto;
-  }
-header h2 {
-  margin: 0;
-  font-size: 2rem;
-  color: #333;
-  font-weight: bold;
+  padding: 10px 20px;
+  position: relative;
 }
 
-/* MENU */
-nav.menu {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 0 10px;
-  gap: 5px;
-  margin: 10px 0;
-}
-nav.menu button {
-  background: #e0e4cc;
-  border: none;
-  padding: 10px 15px;
-  cursor: pointer;
-  border-radius: 8px;
-  font-weight: bold;
-}
-nav.menu button:hover {
-  background: #ccd5ae;
+/* Botón menú hamburguesa */
+.menu-button {
+  background: none;
+  font-size: 1.8rem;
 }
 
-h1 {
+/* Logo y textos */
+.logo-container {
   text-align: center;
-  margin-top: 20px;
+}
+.logo-container img {
+  height: 80px;
+  display: block;
+  margin: 0 auto;
+}
+.logo-container h2 {
+  margin: 5px 0 0;
+  font-size: 1.5rem;
+}
+.logo-container h3 {
+  margin: 0;
+  font-family: Comic Sans MS;
 }
 
-/* GRID DE PRODUCTOS */
+/* Botón carrito */
+.cart-button {
+  background: none;
+  position: relative;
+  font-size: 1.5rem;
+}
+.cart-button #cart-count {
+  background: red;
+  color: white;
+  font-size: 0.8rem;
+  border-radius: 50%;
+  padding: 2px 6px;
+  position: absolute;
+  top: -5px;
+  right: -10px;
+}
+
+/* ==================== MENÚ LATERAL ==================== */
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -300px;
+  width: 250px;
+  height: 100%;
+  background: #CCD5AE;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 15px;
+  transition: left 0.3s ease;
+  z-index: 1000;
+}
+.side-menu.show {
+  left: 0;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+}
+.side-menu button {
+  background: white;
+  padding: 10px;
+  text-align: left;
+  border-radius: 5px;
+}
+.side-menu button:hover {
+  background: #b7c293;
+}
+
+/* ==================== SECCIONES ==================== */
+.seccion h4, .seccion h1 {
+  text-align: center;
+  margin: 20px 0;
+}
+
+/* Sección inicio */
+#inicio {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+/* ==================== GRID DE PRODUCTOS ==================== */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -82,68 +138,46 @@ h1 {
   object-fit: cover;
   border-radius: 8px;
 }
-button {
+.card button {
   background: #CCD5AE;
-  color: #333;
-  border: none;
   padding: 8px 12px;
   margin-top: 10px;
-  cursor: pointer;
   border-radius: 5px;
 }
-button:hover {
+.card button:hover {
   background: #b7c293;
 }
 .card .descripcion {
-  transition: all 0.3s ease;
+  display: none;
+  margin-top: 10px;
+  font-size: 0.9rem;
   background: #f2f2f2;
   padding: 10px;
   border-radius: 8px;
+  text-align: left;
 }
-/* DESCRIPCIÓN DE INICIO */
-#inicio {
-  max-width: 800px;
-  margin: 30px auto;
-  padding: 20px;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  text-align: center;
-  font-size: 1.2rem;
-}
-  
-/* CARRITO */
+
+/* ==================== CARRITO ==================== */
 #carrito {
   background: white;
   padding: 15px;
   border-radius: 10px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  text-align: center;
   max-width: 500px;
   margin: 20px auto;
 }
-
 #lista {
   list-style: none;
   padding: 0;
-  margin: 0 auto;
-  max-width: 500px;
+  margin: 0;
 }
-
-.producto-carrito, .total-carrito {
+.producto-carrito {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-  align-items: center;
   gap: 10px;
   padding: 8px 0;
   border-bottom: 1px solid #ddd;
-  text-align: center;
 }
-
-.producto-carrito .nombre {
-  text-align: left;
-}
-
 .total-carrito {
   grid-column: 1 / -1;
   text-align: right;
@@ -151,94 +185,68 @@ button:hover {
   padding-top: 15px;
   border-top: 2px solid #333;
 }
-
-.producto-carrito .botones button {
-  padding: 4px 8px;
-  font-size: 0.9rem;
-  cursor: pointer;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  background-color: #f0f0f0;
-}
-
-.producto-carrito .botones button:hover {
-  background-color: #ddd;
-}
-
 </style>
 </head>
 <body>
 
 <header>
-  <div class="header-content">
-    <img src="img/logo2.png" alt="PELUDITOS logo">
-    <p style="margin: 5px 0 0; font-size: 0.9rem; color: #444;">PELUDITOS</p>
-    <p style="margin: 5px 0 0; font-size: 0.9rem; color: #444;">Dog Hair Salon</p>
+  <div class="header-bar">
+    <!-- Botón menú lateral -->
+    <button class="menu-button" onclick="toggleMenu()">☰</button>
+
+    <!-- Logo y nombre -->
+    <div class="logo-container">
+      <img src="img/logo2.png" alt="PELUDITOS logo">
+      <h2>PELUDITOS</h2>
+      <h3>Dog Hair Salon</h3>
+    </div>
+
+    <!-- Botón carrito -->
+    <button class="cart-button" onclick="mostrarSeccion('carrito')">
+      🛒 <span id="cart-count">0</span>
+    </button>
   </div>
-  <nav class="menu">
-  <button onclick="mostrarSeccion('inicio')">Inicio</button>
-  <button onclick="mostrarSeccion('destacados')">Destacados</button>
-  <button onclick="mostrarSeccion('piensos')">Piensos</button>
-  <button onclick="mostrarSeccion('arneses')">Arneses</button>
-  <button onclick="mostrarSeccion('juguetes')">Juguetes</button>
-  <button onclick="mostrarSeccion('accesorios')">Accesorios</button>
-  <button id="btnCarrito" onclick="mostrarSeccion('carrito')">Carrito (0)</button>
+
+  <!-- Menú lateral oculto -->
+  <nav id="sideMenu" class="side-menu">
+    <button onclick="mostrarSeccion('inicio')">Inicio</button>
+    <button onclick="mostrarSeccion('destacados')">Destacados</button>
+    <button onclick="mostrarSeccion('piensos')">Piensos</button>
+    <button onclick="mostrarSeccion('arneses')">Arneses</button>
+    <button onclick="mostrarSeccion('juguetes')">Juguetes</button>
+    <button onclick="mostrarSeccion('accesorios')">Accesorios</button>
   </nav>
 </header>
 
 <main>
-  <!-- SECCION INICIO -->
+  <!-- ============== SECCIÓN INICIO ============== -->
   <div id="inicio" class="seccion">
     <h1>Bienvenido a PELUDITOS</h1>
     <p>
       Tu tienda de confianza para el cuidado y la diversión de tu perro.
       Aquí encontrarás alimentos, accesorios, juguetes y todo lo que tu peludo necesita.
-      Usa los botones de arriba para ver nuestras categorías y hacer tu pedido.
     </p>
   </div>
 
-  <!-- DESTACADOS -->
+  <!-- ============== DESTACADOS ============== -->
   <div id="destacados" class="seccion" style="display:none;">
-    <h1>Productos destacados</h1>
-  <div class="grid">
-    <div class="card">
-      <img src="https://via.placeholder.com/200x150?text=Croquetas" alt="Croquetas">
-      <p><strong>Croquetas Premium</strong><br>30€</p>
-      <button onclick="agregarDesdeElemento(this)" data-nombre="Croquetas Premium" data-precio="30">Añadir</button>
-      <button onclick="toggleDescripcion(this)">Ver descripción</button>
-
-        <div class="descripcion" style="display: none; margin-top: 10px; font-size: 0.9rem;">
-          <p>Alimento natural sin cereales, ideal para perros adultos con digestión sensible.</p>
-          <ul>
-            <li>Formato: 20kg</li>
-            <li>Rico en proteínas animales</li>
-            <li>Sin colorantes ni conservantes</li>
-          </ul>
-       </div>
+    <h4>Productos destacados</h4>
+    <div class="grid">
+      <div class="card">
+        <img src="https://via.placeholder.com/200x150?text=Croquetas" alt="Croquetas">
+        <p><strong>Croquetas Premium</strong><br>30€</p>
+        <button onclick="agregarDesdeElemento(this)" data-nombre="Croquetas Premium" data-precio="30">Añadir</button>
+        <button onclick="toggleDescripcion(this)">Ver descripción</button>
+        <div class="descripcion">
+          <p>Alimento natural sin cereales.</p>
+        </div>
+      </div>
     </div>
-
-    <div class="card">
-      <img src="https://via.placeholder.com/200x150?text=Croquetas" alt="Croquetas">
-      <p><strong>Croquetas Premium</strong><br>30€</p>
-      <button onclick="agregarDesdeElemento(this)" data-nombre="Croquetas Premium" data-precio="30">Añadir</button>
-      <button onclick="toggleDescripcion(this)">Ver descripción</button>
-
-        <div class="descripcion" style="display: none; margin-top: 10px; font-size: 0.9rem;">
-          <p>Alimento natural sin cereales, ideal para perros adultos con digestión sensible.</p>
-          <ul>
-            <li>Formato: 20kg</li>
-            <li>Rico en proteínas animales</li>
-            <li>Sin colorantes ni conservantes</li>
-          </ul>
-       </div>
-    </div>
-    </div>
-
   </div>
 
   <!-- PIENSOS -->
   <div id="piensos" class="seccion" style="display:none;">
-    <h1>Piensos</h1>
+    <h4>Piensos</h4>
     <div class="grid">
       <!-- Producto Alpha Spirit -->
        <div class="card">
@@ -304,50 +312,59 @@ button:hover {
     </div>
   </div>
 
-  <!-- CARRITO -->
-  <div id="carrito" class="seccion" style="display:none;">
+  <!-- ============== CARRITO ============== -->
+    <div id="carrito" class="seccion" style="display:none;">
     <h1>Cesta de compra</h1>
     <ul id="lista"></ul>
    
     <div style="margin-top: 30px;">
       <h3>Finalizar pedido</h3>
-      <p style="font-size: 0.9rem; color: #666;">
-     Rellena tus datos y pulsa "Enviar pedido". Te responderemos lo antes posible.
+      <p style="font-size: 0.9rem; color: #666; text-align: justify;">
+        Rellena tus datos y pulsa "Enviar pedido". Te responderemos lo antes posible. El proceso de pago no es automático: nos pondremos en contacto contigo por WhatsApp en un plazo de 24 a 48 horas para formalizar el pedido y que tu peludo reciba sus compras cuanto antes.
       </p>
 
       <form action="https://formspree.io/f/xgvzywpk" method="POST" onsubmit="return prepararEnvio()">
         <input type="text" name="nombre" placeholder="Tu nombre" required style="width:90%; padding:8px; margin-bottom:10px;"><br>
         <input type="email" name="email" placeholder="Tu email" required style="width:90%; padding:8px; margin-bottom:10px;"><br>
         <input type="tel" name="telefono" placeholder="Tu teléfono" required style="width:90%; padding:8px; margin-bottom:10px;"><br>
-
-       <label for="pedido">Tu pedido:</label><br>
-        <textarea name="pedido" id="pedido" readonly style="width:90%; height:150px; padding:8px; margin-bottom:10px;"></textarea><br>
-
-       <button type="submit">Enviar pedido</button>
+        <input type="text" name="direccion" placeholder="Dirección" required style="width:90%; padding:8px; margin-bottom:10px;"><br>
+        <input type="text" name="codigo_postal" placeholder="Código Postal" required style="width:90%; padding:8px; margin-bottom:10px;"><br>
+        <input type="text" name="municipio" placeholder="Municipio" required style="width:90%; padding:8px; margin-bottom:10px;"><br>
+        <input type="text" name="provincia" placeholder="Provincia" required style="width:90%; padding:8px; margin-bottom:10px;"><br>
+        
+        <div style="text-align: center; padding: 10px 20px; background-color: #CCD5AE; margin-top: 10px; border-radius: 5px;">
+          <button type="submit" style="padding:10px 20px;">Enviar pedido</button>
+        </div>
       </form>
     </div>
   </div>
 </main>
 
-
-<!-- SCRIPT -->
 <script>
+/* ==================== LÓGICA ==================== */
 let carrito = [];
 
-function mostrarSeccion(id) {
-  document.querySelectorAll('.seccion').forEach(sec => {
-    sec.style.display = 'none';
-  });
-  document.getElementById(id).style.display = 'block';
+// Mostrar/ocultar menú lateral
+function toggleMenu() {
+  document.getElementById('sideMenu').classList.toggle('show');
 }
 
+// Cambiar sección visible
+function mostrarSeccion(id) {
+  document.querySelectorAll('.seccion').forEach(sec => sec.style.display = 'none');
+  document.getElementById(id).style.display = 'block';
+  document.getElementById('sideMenu').classList.remove('show');
+}
+
+// Actualizar lista del carrito
 function actualizarLista() {
   const lista = document.getElementById('lista');
-  const btnCarrito = document.getElementById('btnCarrito');
+  const contador = document.getElementById('cart-count');
+  const totalUnidades = carrito.reduce((sum, item) => sum + item.cantidad, 0);
+  contador.textContent = totalUnidades;
 
   if (carrito.length === 0) {
     lista.innerHTML = "<li>El carrito está vacío</li>";
-    btnCarrito.innerText = "Carrito (0)";
     return;
   }
 
@@ -357,115 +374,63 @@ function actualizarLista() {
     total += subtotal;
     return `
     <li class="producto-carrito">
-      <span class="nombre">${item.nombre}</span>
-      <span class="precio">${item.precio.toFixed(2)}€</span>
-      <span class="cantidad">x${item.cantidad}</span>
-      <span class="subtotal">${subtotal.toFixed(2)}€</span>
-      <span class="botones">
+      <span>${item.nombre}</span>
+      <span>${item.precio.toFixed(2)}€</span>
+      <span>x${item.cantidad}</span>
+      <span>${subtotal.toFixed(2)}€</span>
+      <span>
         <button onclick="cambiarCantidad(${index}, -1)">-</button>
         <button onclick="cambiarCantidad(${index}, 1)">+</button>
       </span>
     </li>`;
   }).join('');
-
   lista.innerHTML += `<li class="total-carrito"><strong>Total: ${total.toFixed(2)}€</strong></li>`;
-
-  const totalUnidades = carrito.reduce((sum, item) => sum + item.cantidad, 0);
-  btnCarrito.innerText = `Carrito (${totalUnidades})`;
 }
 
+// Agregar producto con select
 function agregarConFormato(boton) {
   const card = boton.closest(".card");
   const select = card.querySelector("select");
-  const formatoSeleccionado = select.options[select.selectedIndex];
+  const opt = select.options[select.selectedIndex];
+  const nombreProducto = card.querySelector("strong").innerText + " " + opt.value + "kg";
+  const precio = parseFloat(opt.dataset.precio);
 
-  const nombreProducto = card.querySelector("strong").innerText + " " + formatoSeleccionado.value + "kg";
-  const precio = parseFloat(formatoSeleccionado.dataset.precio);
-
-  const productoExistente = carrito.find(item => item.nombre === nombreProducto);
-  if (productoExistente) {
-    productoExistente.cantidad++;
+  const existente = carrito.find(item => item.nombre === nombreProducto);
+  if (existente) {
+    existente.cantidad++;
   } else {
-    carrito.push({ nombre: nombreProducto, cantidad: 1, precio: precio });
+    carrito.push({ nombre: nombreProducto, cantidad: 1, precio });
   }
-
   actualizarLista();
 }
-function agregarConFormato(boton) {
-  const card = boton.closest(".card");
-  const select = card.querySelector("select");
-  const formatoSeleccionado = select.options[select.selectedIndex];
 
-  const nombreCorto = formatoSeleccionado.getAttribute("data-nombre-corto");
-  
-  const nombreProducto = nombreCorto || (card.querySelector("strong").innerText + " " + formatoSeleccionado.value + "kg");
-  
-  const precio = parseFloat(formatoSeleccionado.dataset.precio);
-
-  const productoExistente = carrito.find(item => item.nombre === nombreProducto);
-  if (productoExistente) {
-    productoExistente.cantidad++;
+// Agregar producto sin select
+function agregarDesdeElemento(btn) {
+  const nombre = btn.dataset.nombre;
+  const precio = parseFloat(btn.dataset.precio);
+  const existente = carrito.find(item => item.nombre === nombre);
+  if (existente) {
+    existente.cantidad++;
   } else {
-    carrito.push({ nombre: nombreProducto, cantidad: 1, precio: precio });
+    carrito.push({ nombre, cantidad: 1, precio });
   }
   actualizarLista();
 }
 
-
-function cambiarCantidad(index, cambio) {
-  carrito[index].cantidad += cambio;
-  if (carrito[index].cantidad <= 0) {
-    carrito.splice(index, 1);
-  }
+// Cambiar cantidad
+function cambiarCantidad(index, delta) {
+  carrito[index].cantidad += delta;
+  if (carrito[index].cantidad <= 0) carrito.splice(index, 1);
   actualizarLista();
 }
 
-function enviarWhatsApp() {
-  if (carrito.length === 0) {
-    alert("Tu carrito está vacío");
-    return;
-  }
-
-  let total = 0;
-  const texto = carrito.map(item => {
-    const subtotal = item.precio * item.cantidad;
-    total += subtotal;
-    return `${item.nombre} x${item.cantidad} = ${subtotal}€`;
-  }).join("\n");
-
-  const mensaje = encodeURIComponent("Hola, quiero pedir:\n" + texto + `\nTOTAL: ${total}€`);
-  const numero = "34615300815";
-  window.open(`https://wa.me/${numero}?text=${mensaje}`, "_blank");
-}
-
-function prepararEnvio() {
-  if (carrito.length === 0) {
-    alert("Tu carrito está vacío");
-    return false;
-  }
-
-  let total = 0;
-  const textoPedido = carrito.map(item => {
-    const subtotal = item.precio * item.cantidad;
-    total += subtotal;
-    return `${item.nombre} x${item.cantidad} = ${subtotal}€`;
-  }).join("\n");
-
-  document.getElementById("pedido").value = `${textoPedido}\n\nTOTAL: ${total}€`;
-  return true;
-}
+// Mostrar/ocultar descripción
 function toggleDescripcion(boton) {
-  const descripcion = boton.nextElementSibling;
-  if (descripcion.style.display === "none") {
-    descripcion.style.display = "block";
-    boton.innerText = "Ver menos";
-  } else {
-    descripcion.style.display = "none";
-    boton.innerText = "Ver descripción";
-  }
+  const desc = boton.nextElementSibling;
+  const visible = desc.style.display === "block";
+  desc.style.display = visible ? "none" : "block";
+  boton.textContent = visible ? "Ver descripción" : "Ver menos";
 }
-
 </script>
-
 </body>
 </html>
