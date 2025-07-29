@@ -436,10 +436,28 @@ function toggleDescripcion(boton) {
   boton.textContent = visible ? "Ver descripción" : "Ver menos";
 }
 
-document.addEventListener('click', function(e) {
-  const menu = document.getElementById('menu-buttom');
-  const button = document.querySelector('.togglemenu');
-  if (!menu.contains(e.target) && !button.contains(e.target)) {
+const menu = document.getElementById('side-menu');
+const toggle = document.getElementById('togglemenu');
+
+// Abre/cierra el menú
+toggle.addEventListener('click', (e) => {
+  e.stopPropagation(); // evita que el clic cierre el menú inmediatamente
+  menu.classList.toggle('show');
+});
+
+// Cierra el menú al hacer clic fuera de él
+document.addEventListener('click', (e) => {
+  if (menu.classList.contains('show')) {
+    
+    if (!menu.contains(e.target) && e.target !== toggle) {
+      menu.classList.remove('show');
+    }
+  }
+});
+
+// Opcional: si se hace clic en una opción del menú, también se cierra
+menu.addEventListener('click', (e) => {
+  if (e.target.tagName === 'BUTTON' || e.target.tagName === 'A') {
     menu.classList.remove('show');
   }
 });
