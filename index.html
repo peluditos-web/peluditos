@@ -435,6 +435,14 @@ function toggleDescripcion(boton) {
   desc.style.display = visible ? "none" : "block";
   boton.textContent = visible ? "Ver descripción" : "Ver menos";
 }
+
+document.addEventListener('click', function(e) {
+  const menu = document.getElementById('sideMenu');
+  const button = document.querySelector('.hamburger');
+  if (!menu.contains(e.target) && !button.contains(e.target)) {
+    menu.classList.remove('show');
+  }
+});
 </script>
 </body>
 </html>
