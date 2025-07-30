@@ -992,7 +992,7 @@ function actualizarLista() {
   lista.innerHTML += `
     <li class="total-carrito">
       Subtotal: ${subtotal.toFixed(2)}€<br>
-      Peso total: ${pesoTotal.toFixed(1)} kg<br>
+      Peso estimado: ${pesoTotal.toFixed(1)} kg<br>
       Envío: ${gastosEnvio.toFixed(2)}€<br>
       <strong>Total: ${total.toFixed(2)}€</strong>
     </li>`;
@@ -1060,37 +1060,27 @@ function toggleDescripcion(boton) {
 // Ocultar menú lateral
 const menu = document.getElementById('sideMenu');
 const menuButton = document.querySelector('.menu-button');
+const overlay = document.getElementById('overlay');
 
     // Mostrar/ocultar menú lateral
 function toggleMenu() {
-  menu.classList.toggle('show');
-  document.getElementById('overlay').style.display = menu.classList.contains('show') ? 'block' : 'none';
+  const abierto = menu.classList.toggle('show');
+  overlay.style.display = abierto ? 'block' : 'none';
 }
 
     // Cierra el menú si se hace clic fuera de él
-document.addEventListener('click', (e) => {
-  // Solo actuar si el menú está visible
-  if (menu.classList.contains('show')) {
-    const clicDentroMenu = menu.contains(e.target);
-    const clicEnBotonMenu = menuButton.contains(e.target);
-
-    if (!clicDentroMenu && !clicEnBotonMenu) {
-      menu.classList.remove('show');
-    }
-  }
+overlay.addEventListener('click', () => {
+  menu.classList.remove('show');
+  overlay.style.display = 'none';
 });
-
-    // Al hacer clic en una opción del menú también lo cierra
+  // Solo actuar si el menú está visible
 menu.addEventListener('click', (e) => {
   if (e.target.tagName === 'BUTTON') {
     menu.classList.remove('show');
+    overlay.style.display = 'none';
   }
 });
-    // Overlay
-document.getElementById('overlay').addEventListener('click', () => {
-  menu.classList.remove('show');
-  document.getElementById('overlay').style.display = 'none';
-});
+
 </script>
 </body>
 </html>
