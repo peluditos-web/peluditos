@@ -198,7 +198,7 @@ header {
   display:none;
   position:fixed;
   top:0;left:0;width:100%;height:100%;
-  background:rgba(0,0,0,0.3);
+  background:rgba(0,0,0,0);
   z-index:900;"></div>
   
   <div class="header-bar">
@@ -259,7 +259,7 @@ header {
   <div id="piensos" class="seccion" style="display:none;">
     <h4>Piensos</h4>
     <div class="grid">
-      <!-- Producto Alpha Spirit -->
+      <!-- Alpha Spirit 7days formula-->
        <div class="card">
         <img src="piensos\IMG_1199.PNG" alt="7days fórmula AS">
         <p><strong>THE ONLY ONE - 7days fórmula by Alpha Spirit</strong></p>
@@ -285,9 +285,140 @@ header {
           </ul>
         </div>
       </div>
+            <!-- Alpha Spirit Multiprotein -->
+       <div class="card">
+        <img src="piensos\IMG_1200.PNG" alt="Multiprotein AS">
+        <p><strong>THE ONLY ONE - Multi-protein by Alpha Spirit</strong></p>
 
-      
+        <label for="formato-pienso">Formato:</label>
+        <select id="formato-pienso">
+          <option value="12" data-precio="63.95" data-nombre-corto="Multiprotein 12kg">12 kg - 63,95€</option>
+          <option value="3" data-precio="23.95" data-nombre-corto="Multiprotein 3kg">3 kg - 23,95€</option>
+          <option value="1.5" data-precio="15.95" data-nombre-corto="Multiprotein 1,5kg">1,5 kg - 15,95€</option>
+        </select>
+        <button onclick="agregarConFormato(this)">Añadir</button>
+        <!-- Descripcion producto -->
+        <button onclick="toggleDescripcion(this)">Ver descripción</button>
+        <div class="descripcion" style="display: none; margin-top: 10px; font-size: 0.9rem; text-align: left;">
+          <p>Comida natural para perros</p>
+            <ul>
+            <li>100% natural: Sin cereales, gluten ni harinas cárnicas</li>
+            <li>No extrusionado: Cocinado a baja temperatura con tecnología Tenderize que conserva nutrientes</li>
+            <li>Ingredientes frescos: 70% carne y pescado frescos (cerdo, pollo, pescado azul)</li>
+            <li>Alta palatabilidad y digestibilidad</li>
+            <li>Sin grasas añadidas: Solo grasas naturales de carne y pescado</li>
+            <li>Origen español: Ingredientes de empresas locales</li>
+            <li>Beneficios: Más energía, salud digestiva y pelaje brillante</li>
+          </ul>
+        </div>
+      </div>
+      <!-- Alpha Spirit Pato -->
+       <div class="card">
+        <img src="piensos\IMG_1203.PNG" alt="Free Range Duck AS">
+        <p><strong>THE ONLY ONE - Free Range Duck (Pato) by Alpha Spirit</strong></p>
 
+        <label for="formato-pienso">Formato:</label>
+        <select id="formato-pienso">
+          <option value="12" data-precio="69.95" data-nombre-corto="Duck 12kg">12 kg - 69,95€</option>
+          <option value="3" data-precio="27.95" data-nombre-corto="Duck 3kg">3 kg - 27,95€</option>
+        </select>
+        <button onclick="agregarConFormato(this)">Añadir</button>
+        <!-- Descripcion producto -->
+        <button onclick="toggleDescripcion(this)">Ver descripción</button>
+        <div class="descripcion" style="display: none; margin-top: 10px; font-size: 0.9rem; text-align: left;">
+          <p>Comida natural para perros</p>
+            <ul>
+            <li>100% natural: Sin cereales, gluten ni harinas cárnicas</li>
+            <li>No extrusionado: Cocinado a baja temperatura con tecnología Tenderize que conserva nutrientes</li>
+            <li>Ingredientes frescos: 70% carne y pescado frescos (cerdo, pollo, pescado azul)</li>
+            <li>Alta palatabilidad y digestibilidad</li>
+            <li>Sin grasas añadidas: Solo grasas naturales de carne y pescado</li>
+            <li>Origen español: Ingredientes de empresas locales</li>
+            <li>Beneficios: Más energía, salud digestiva y pelaje brillante</li>
+          </ul>
+        </div>
+      </div>
+      <!-- Alpha Spirit Pescado-->
+       <div class="card">
+        <img src="piensos\IMG_1201.PNG" alt="Wild fish AS">
+        <p><strong>THE ONLY ONE - Wild fish (Pescado) by Alpha Spirit</strong></p>
+
+        <label for="formato-pienso">Formato:</label>
+        <select id="formato-pienso">
+          <option value="12" data-precio="69.95" data-nombre-corto="Wild fish 12kg">12 kg - 69,95€</option>
+          <option value="3" data-precio="27.95" data-nombre-corto="Wild fish 3kg">3 kg - 27,95€</option>
+          <option value="1.5" data-precio="16.95" data-nombre-corto="Wild fish 1.5kg">1,5 kg - 16,95€</option>
+        </select>
+        <button onclick="agregarConFormato(this)">Añadir</button>
+        <!-- Descripcion producto -->
+        <button onclick="toggleDescripcion(this)">Ver descripción</button>
+        <div class="descripcion" style="display: none; margin-top: 10px; font-size: 0.9rem; text-align: left;">
+          <p>Comida natural para perros</p>
+            <ul>
+            <li>100% natural: Sin cereales, gluten ni harinas cárnicas</li>
+            <li>No extrusionado: Cocinado a baja temperatura con tecnología Tenderize que conserva nutrientes</li>
+            <li>Ingredientes frescos: 70% carne y pescado frescos (cerdo, pollo, pescado azul)</li>
+            <li>Alta palatabilidad y digestibilidad</li>
+            <li>Sin grasas añadidas: Solo grasas naturales de carne y pescado</li>
+            <li>Origen español: Ingredientes de empresas locales</li>
+            <li>Beneficios: Más energía, salud digestiva y pelaje brillante</li>
+          </ul>
+        </div>
+      </div>
+      <!-- Alpha Spirit Poultry-->
+       <div class="card">
+        <img src="piensos\IMG_1202.PNG" alt="Poultry AS">
+        <p><strong>THE ONLY ONE - Poultry (Pollo, Pavo y Pato) by Alpha Spirit</strong></p>
+
+        <label for="formato-pienso">Formato:</label>
+        <select id="formato-pienso">
+          <option value="12" data-precio="69.95" data-nombre-corto="Poultry 12kg">12 kg - 69,95€</option>
+          <option value="3" data-precio="27.95" data-nombre-corto="Poultry 3kg">3 kg - 27,95€</option>
+          <option value="1.5" data-precio="16.95" data-nombre-corto="Poultry 1.5kg">1,5 kg - 16,95€</option>
+        </select>
+        <button onclick="agregarConFormato(this)">Añadir</button>
+        <!-- Descripcion producto -->
+        <button onclick="toggleDescripcion(this)">Ver descripción</button>
+        <div class="descripcion" style="display: none; margin-top: 10px; font-size: 0.9rem; text-align: left;">
+          <p>Comida natural para perros</p>
+            <ul>
+            <li>100% natural: Sin cereales, gluten ni harinas cárnicas</li>
+            <li>No extrusionado: Cocinado a baja temperatura con tecnología Tenderize que conserva nutrientes</li>
+            <li>Ingredientes frescos: 70% carne y pescado frescos (cerdo, pollo, pescado azul)</li>
+            <li>Alta palatabilidad y digestibilidad</li>
+            <li>Sin grasas añadidas: Solo grasas naturales de carne y pescado</li>
+            <li>Origen español: Ingredientes de empresas locales</li>
+            <li>Beneficios: Más energía, salud digestiva y pelaje brillante</li>
+          </ul>
+        </div>
+      </div>
+      <!-- Alpha Spirit Puppy-->
+       <div class="card">
+        <img src="piensos\IMG_1204.PNG" alt="Puppies AS">
+        <p><strong>THE ONLY ONE - Puppies (Pollo, Pavo, Pato y Pescado) by Alpha Spirit</strong></p>
+
+        <label for="formato-pienso">Formato:</label>
+        <select id="formato-pienso">
+          <option value="12" data-precio="69.95" data-nombre-corto="Puppies 12kg">12 kg - 69,95€</option>
+          <option value="3" data-precio="27.95" data-nombre-corto="Puppies 3kg">3 kg - 27,95€</option>
+          <option value="1.5" data-precio="16.95" data-nombre-corto="Puppies 1.5kg">1,5 kg - 16,95€</option>
+        </select>
+        <button onclick="agregarConFormato(this)">Añadir</button>
+        <!-- Descripcion producto -->
+        <button onclick="toggleDescripcion(this)">Ver descripción</button>
+        <div class="descripcion" style="display: none; margin-top: 10px; font-size: 0.9rem; text-align: left;">
+          <p>Comida natural para perros</p>
+            <ul>
+            <li>100% natural: Sin cereales, gluten ni harinas cárnicas</li>
+            <li>No extrusionado: Cocinado a baja temperatura con tecnología Tenderize que conserva nutrientes</li>
+            <li>Ingredientes frescos: 70% carne y pescado frescos (cerdo, pollo, pescado azul)</li>
+            <li>Alta palatabilidad y digestibilidad</li>
+            <li>Sin grasas añadidas: Solo grasas naturales de carne y pescado</li>
+            <li>Origen español: Ingredientes de empresas locales</li>
+            <li>Beneficios: Más energía, salud digestiva y pelaje brillante</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -437,17 +568,17 @@ function toggleDescripcion(boton) {
   desc.style.display = visible ? "none" : "block";
   boton.textContent = visible ? "Ver descripción" : "Ver menos";
 }
-
+// Ocultar menú lateral
 const menu = document.getElementById('sideMenu');
 const menuButton = document.querySelector('.menu-button');
 
-// Mostrar/ocultar menú lateral
+    // Mostrar/ocultar menú lateral
 function toggleMenu() {
   menu.classList.toggle('show');
   document.getElementById('overlay').style.display = menu.classList.contains('show') ? 'block' : 'none';
 }
 
-// Cierra el menú si se hace clic fuera de él
+    // Cierra el menú si se hace clic fuera de él
 document.addEventListener('click', (e) => {
   // Solo actuar si el menú está visible
   if (menu.classList.contains('show')) {
@@ -460,13 +591,13 @@ document.addEventListener('click', (e) => {
   }
 });
 
-// Opcional: al hacer clic en una opción del menú también lo cierra
+    // Al hacer clic en una opción del menú también lo cierra
 menu.addEventListener('click', (e) => {
   if (e.target.tagName === 'BUTTON') {
     menu.classList.remove('show');
   }
 });
-
+    // Overlay
 document.getElementById('overlay').addEventListener('click', () => {
   menu.classList.remove('show');
   document.getElementById('overlay').style.display = 'none';
