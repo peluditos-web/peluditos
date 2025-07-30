@@ -968,23 +968,34 @@ function actualizarLista() {
     return;
   }
 
-  let total = 0;
+  let subtotal = 0;
   lista.innerHTML = carrito.map((item, index) => {
-    const subtotal = item.precio * item.cantidad;
-    total += subtotal;
+    const subtotalItem = item.precio * item.cantidad;
+    subtotal += subtotalItem;
     return `
     <li class="producto-carrito">
       <span>${item.nombre}</span>
       <span>${item.precio.toFixed(2)}€</span>
       <span>x${item.cantidad}</span>
-      <span>${subtotal.toFixed(2)}€</span>
+      <span>${subtotalItem.toFixed(2)}€</span>
       <span>
         <button onclick="cambiarCantidad(${index}, -1)">-</button>
         <button onclick="cambiarCantidad(${index}, 1)">+</button>
       </span>
     </li>`;
   }).join('');
-  lista.innerHTML += `<li class="total-carrito"><strong>Total: ${total.toFixed(2)}€</strong></li>`;
+
+  const pesoTotal = calcularPesoTotal();
+  const gastosEnvio = calcularGastosEnvio();
+  const total = subtotal + gastosEnvio;
+
+  lista.innerHTML += `
+    <li class="total-carrito">
+      Subtotal: ${subtotal.toFixed(2)}€<br>
+      Peso total: ${pesoTotal.toFixed(1)} kg<br>
+      Envío: ${gastosEnvio.toFixed(2)}€<br>
+      <strong>Total: ${total.toFixed(2)}€</strong>
+    </li>`;
 }
 
 // Agregar producto con select
