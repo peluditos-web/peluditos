@@ -951,9 +951,12 @@ let carrito = [];
 
 // Cambiar sección visible
 function mostrarSeccion(id) {
-  document.querySelectorAll('.seccion').forEach(sec => sec.style.display = 'none');
-  document.getElementById(id).style.display = 'block';
-  document.getElementById('sideMenu').classList.remove('show');
+  setTimeout(() => {
+    document.querySelectorAll('.seccion').forEach(sec => sec.style.display = 'none');
+    document.getElementById(id).style.display = 'block';
+    document.getElementById('sideMenu').classList.remove('show');
+    document.getElementById('overlay').style.display = 'none';
+  }, 50);
 }
 
 // Actualizar lista del carrito
