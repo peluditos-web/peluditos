@@ -994,14 +994,29 @@ function agregarConFormato(boton) {
   const opt = select.options[select.selectedIndex];
   const nombreProducto = card.querySelector("strong").innerText + " " + opt.value + "kg";
   const precio = parseFloat(opt.dataset.precio);
+  const peso = parseFloat(opt.value); // <<< añadimos el peso
 
   const existente = carrito.find(item => item.nombre === nombreProducto);
   if (existente) {
     existente.cantidad++;
   } else {
-    carrito.push({ nombre: nombreProducto, cantidad: 1, precio });
+    carrito.push({ nombre: nombreProducto, cantidad: 1, precio, peso }); // <<< guardamos el peso
   }
   actualizarLista();
+}
+
+// Calcular gastos
+function calcularPesoTotal() {
+  return carrito.reduce((sum, item) => sum + (item.peso || 0) * item.cantidad, 0);
+}
+
+// Gastos de envio
+function calcularGastosEnvio() {
+  const pesoTotal = calcularPesoTotal();
+  if (pesoTotal <= 5) return 5.00;
+  if (pesoTotal <= 15) return 8.00;
+  if (pesoTotal <= 30) return 12.00;
+  return 20.00;
 }
 
 // Agregar producto sin select
