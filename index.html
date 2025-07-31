@@ -112,7 +112,7 @@ header {
 .seccion h4 {
   text-align: center;
   margin: 20px 0;
-  font-size: 1.2rem;
+  font-size: 1.7rem;
 }
 /* Sección inicio */
 #inicio {
@@ -237,6 +237,7 @@ header {
     <button onclick="mostrarSeccion('ofertas')">OFERTAS</button>
     <button onclick="mostrarSeccion('piensos')">PIENSOS</button>
     <button onclick="mostrarSeccion('comidanatural')">COMIDA NATURAL</button>
+    <button onclick="mostrarSeccion('snacksnaturales')">SNACKS NATURALES</button>
     <button onclick="mostrarSeccion('arneses')">Arneses</button>
     <button onclick="mostrarSeccion('juguetes')">Juguetes</button>
     <button onclick="mostrarSeccion('accesorios')">Accesorios</button>
@@ -257,7 +258,7 @@ header {
 
     <!-- ============== NOVEDADES ============== -->
   <div id="novedades" class="seccion" style="display:none;">
-    <h4>Novedades</h4>
+    <h4>NOVEDADES</h4>
     <div class="grid">
       <div class="card">
         <img src="https://via.placeholder.com/200x150?text=Croquetas" alt="Croquetas">
@@ -273,7 +274,7 @@ header {
 
   <!-- ============== OFERTAS ============== -->
   <div id="ofertas" class="seccion" style="display:none;">
-    <h4>Ofertas</h4>
+    <h4>OFERTAS</h4>
     <div class="grid">
       <div class="card">
         <img src="https://via.placeholder.com/200x150?text=Croquetas" alt="Croquetas">
@@ -289,7 +290,7 @@ header {
 
   <!-- ============== PIENSOS ============== -->
   <div id="piensos" class="seccion" style="display:none;">
-    <h4>Piensos</h4>
+    <h4>PIENSOS</h4>
     <div class="grid">
       <!-- Alpha Spirit 7days formula-->
        <div class="card">
@@ -456,7 +457,7 @@ header {
   
   <!-- ============== COMIDA NATURAL ============== -->
   <div id="comidanatural" class="seccion" style="display:none;">
-    <h4>Comida Natural</h4>
+    <h4>COMIDA NATURAL</h4>
     <div class="grid">
       <!-- Alpha Spirit WET rabbit with banana-->
        <div class="card">
@@ -887,6 +888,71 @@ header {
     </div>
   </div>
   
+  <!-- ============== COMIDA NATURAL ============== -->
+  <div id="snacksnaturales" class="seccion" style="display:none;">
+    <h4>SNACKS NATURALES</h4>
+    <div class="grid">
+      <!-- Alpha Spirit NATURAL SNACK Duck-->
+       <div class="card">
+        <img src="snacksnaturales/IMG_1329.PNG" alt="duck NS AS">
+        <p><strong>NATURAL SNACK - Duck (Pato) by Alpha Spirit</strong></p>
+
+        <select id="formato-comidanatural" style="display:none">
+          <option value="0.080" data-precio="2.95" data-nombre-corto="Duck NS"></option>
+        </select>
+        <p>80 gr - 2,95€</p>
+        <button onclick="agregarConFormato(this)">Añadir</button>
+        <!-- Descripcion producto -->
+        <button onclick="toggleDescripcion(this)">Ver descripción</button>
+        <div class="descripcion" style="display: none; margin-top: 10px; font-size: 0.9rem; text-align: left;">
+          <ul>
+            <li>Pollo 53% (Carne 48%, hígado 5%), cerdo 15%, pato 20%, fécula de patata, proteína de soja, glicerina, colágeno, huevo deshidratado, fibra de guisante, especias</li>
+            <li>Antioxidante: Extracto de aceites vegetales rico en tocoferoles</li>
+            <li>Proteína bruta: 34%, fibra bruta: 1,3%, grasa bruta: 21%, ceniza bruta: 3,4%, humedad 20%</li>
+          </ul>
+        </div>
+      </div>
+      <!-- Alpha Spirit NATURAL SNACK Chicken-->
+       <div class="card">
+        <img src="snacksnaturales/IMG_1330.PNG" alt="chicken NS AS">
+        <p><strong>NATURAL SNACK - Chicken (Pollo) by Alpha Spirit</strong></p>
+
+        <select id="formato-comidanatural" style="display:none">
+          <option value="0.080" data-precio="2.95" data-nombre-corto="Chicken NS"></option>
+        </select>
+        <p>80 gr - 2,95€</p>
+        <button onclick="agregarConFormato(this)">Añadir</button>
+        <!-- Descripcion producto -->
+        <button onclick="toggleDescripcion(this)">Ver descripción</button>
+        <div class="descripcion" style="display: none; margin-top: 10px; font-size: 0.9rem; text-align: left;">
+          <ul>
+            <li>Pollo 60% (56% carne, 4% hígado), cerdo 20%, fécula de patata, proteína de soja, glicerina, colágeno, huevo deshidratado, fibra de guisante, especias</li>
+            <li>Antioxidante: Extracto de aceites vegetales rico en tocoferoles</li>
+            <li>Proteína bruta: 33%, fibra bruta: 0,7%, grasa bruta: 20%, ceniza bruta: 2,5%, humedad 19%</li>
+          </ul>
+        </div>
+      </div>
+      <!-- Alpha Spirit NATURAL SNACK Tuna-->
+       <div class="card">
+        <img src="snacksnaturales/IMG_1346.PNG" alt="tuna NS AS">
+        <p><strong>NATURAL SNACK - Tuna (Atún) by Alpha Spirit</strong></p>
+
+        <select id="formato-comidanatural" style="display:none">
+          <option value="0.080" data-precio="2.95" data-nombre-corto="Tuna NS"></option>
+        </select>
+        <p>80 gr - 2,95€</p>
+        <button onclick="agregarConFormato(this)">Añadir</button>
+        <!-- Descripcion producto -->
+        <button onclick="toggleDescripcion(this)">Ver descripción</button>
+        <div class="descripcion" style="display: none; margin-top: 10px; font-size: 0.9rem; text-align: left;">
+          <ul>
+            <li>Pollo 30%, pavo 25%, atún 25%, fécula de patata, proteína de soja, aceite de trucha, glicerina, colágeno, huevo deshidratado, fibra de guisante, especias</li>
+            <li>Antioxidante: Extracto de aceites vegetales rico en tocoferoles</li>
+            <li>Proteína bruta: 32%, fibra bruta: 0,7%, grasa bruta: 10%, ceniza bruta: 3,1%, humedad 21%</li>
+          </ul>
+        </div>
+      </div>
+
   <!-- ARNESES -->
   <div id="arneses" class="seccion" style="display:none;">
     <h1>Arneses</h1>
