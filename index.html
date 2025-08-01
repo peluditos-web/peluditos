@@ -1022,12 +1022,12 @@ let carrito = [];
 
 // Cambiar sección visible
 function mostrarSeccion(id) {
-  setTimeout(() => {
-    document.querySelectorAll('.seccion').forEach(sec => sec.style.display = 'none');
-    document.getElementById(id).style.display = 'block';
-    document.getElementById('sideMenu').classList.remove('show');
-    document.getElementById('overlay').style.display = 'none';
-  }, 50);
+    document.querySelectorAll('.seccion').forEach(sec => {
+    sec.style.display = 'none';});
+  const seccion = document.getElementById(id);
+  if (seccion) {seccion.style.display = 'block';}
+  document.getElementById("sideMenu").classList.remove("show");
+  document.getElementById("overlay").style.display = "none";
 }
 
 // Actualizar lista del carrito
@@ -1138,8 +1138,10 @@ const overlay = document.getElementById('overlay');
 
     // Mostrar/ocultar menú lateral
 function toggleMenu() {
-  const abierto = menu.classList.toggle('show');
-  overlay.style.display = abierto ? 'block' : 'none';
+  const menu = document.getElementById("sideMenu");
+  const overlay = document.getElementById("overlay");
+  const isOpen = menu.classList.toggle("show");
+  overlay.style.display = isOpen ? "block" : "none";
 }
 
     // Cierra el menú si se hace clic fuera de él
