@@ -340,6 +340,33 @@ header { background: #CCD5AE; }
           </ul>
         </div>
       </div>
+      <!-- Orygo chicken-->
+      <div class="card">
+        <img src="piensos/IMG_1347.PNG" alt="chicken ory">
+        <p><strong>THE ONLY ONE - 7days fórmula by Alpha Spirit</strong></p>
+
+        <label for="formato-pienso">Formato:</label>
+        <select id="formato-pienso" onchange="cambiarImagen(this)">
+          <option value="8" data-precio="59.95" data-nombre-corto="chicken ory 8kg" data-imagen="piensos/IMG_1348.PNG">8 kg - 59,95€</option>
+          <option value="3.60" data-precio="34.95" data-nombre-corto="chicken ory 3.60kg" data-imagen="piensos/IMG_1347.PNG">3.60 kg - 34,95€</option>
+        </select>
+        <button onclick="agregarConFormato(this)">Añadir</button>
+        <!-- Descripcion producto -->
+        <button onclick="toggleDescripcion(this)">Ver descripción</button>
+        <div class="descripcion" style="display: none; margin-top: 10px; font-size: 0.9rem; text-align: left;">
+          <p>Comida natural para cachorros</p>
+            <ul>
+            <li>100% natural: Sin cereales, gluten ni harinas cárnicas</li>
+            <li>No extrusionado: Cocinado a baja temperatura con tecnología Tenderize que conserva nutrientes</li>
+            <li>Ingredientes frescos: 70% carne y pescado frescos (pavo, cerdo, pato, pescado azul e hígado de pollo)</li>
+            <li>Alta palatabilidad y digestibilidad</li>
+            <li>Sin grasas añadidas: Solo grasas naturales de carne y pescado</li>
+            <li>Origen español: Ingredientes de empresas locales</li>
+            <li>Beneficios: Crecimiento sano, energía, digestión óptima y pelaje brillante</li>
+          </ul>
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -1017,6 +1044,13 @@ function prepararEnvio() {
   let total = totalElem.textContent;
   pedidoInput.value = resumen + "\\n" + subtotal + "\\n" + envio + "\\n" + total;
   return true;
+}
+
+function cambiarImagen(select) {
+  const imagenURL = select.options[select.selectedIndex].dataset.imagen;
+  const card = select.closest('.card'); // busca el contenedor de esta tarjeta
+  const img = card.querySelector('img');
+  img.src = imagenURL;
 }
 
 </script>
