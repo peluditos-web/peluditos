@@ -895,12 +895,12 @@ function mostrarSeccion(id) {
   overlay.style.display = "none";
 }
 
-function mostrarMensajeFlotante() {
-  const mensaje = document.getElementById("mensaje-flotante");
-  mensaje.style.display = "block";
+function mostrarMensaje() {
+  const mensaje = document.getElementById('mensaje-flotante');
+  mensaje.style.display = 'block';
   setTimeout(() => {
-    mensaje.style.display = "none";
-  }, 2000);
+    mensaje.style.display = 'none';
+  }, 2000); // 2 segundos
 }
 
 function agregarConFormato(boton) {
@@ -931,6 +931,7 @@ function agregarConFormato(boton) {
   }
 
   actualizarCarrito();
+  mostrarMensaje();
 }
 
 // Calcular gastos
