@@ -6,7 +6,6 @@
 <title>PELUDITOS - Dog Hair Salon</title>
 <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
 <style>
-/* ==================== ESTILOS GENERALES ==================== */
 body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
@@ -14,230 +13,118 @@ body {
   background: #f9f9f9;
   color: #333;
 }
-button {
-  cursor: pointer;
-  border: none;
-  color: #252525;
-}
+button { cursor: pointer; border: none; color: #252525; }
 
-/* ==================== HEADER ==================== */
-header {
-  background: #CCD5AE;
-}
+/* HEADER */
+header { background: #CCD5AE; }
 .header-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  position: relative;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 20px; position: relative;
 }
-
-/* Botón menú hamburguesa */
-.menu-button {
-  background: none;
-  font-size: 1.8rem;
-  color: #252525;
-}
-
-/* Logo y textos */
-.logo-container {
-  text-align: center;
-}
-.logo-container img {
-  height: 150px;
-  display: block;
-  margin: 0 auto;
-}
-.logo-container h2 {
-  margin: 5px 0 0;
-  font-size: 2.5rem;
-}
-.logo-container h3 {
-  margin: 0;
-  font-size: 2rem;
-  font-family: 'Shadows Into Light';
-}
-
-/* Botón carrito */
-.cart-button {
-  background: none;
-  position: relative;
-  font-size: 1.5rem;
-}
+.menu-button { background: none; font-size: 1.8rem; color: #252525; }
+.logo-container { text-align: center; }
+.logo-container img { height: 150px; display: block; margin: 0 auto; }
+.logo-container h2 { margin: 5px 0 0; font-size: 2.5rem; }
+.logo-container h3 { margin: 0; font-size: 2rem; font-family: 'Shadows Into Light'; }
+.cart-button { background: none; position: relative; font-size: 1.5rem; }
 .cart-button #cart-count {
-  background: red;
-  color: white;
-  font-size: 0.8rem;
-  border-radius: 50%;
-  padding: 2px 6px;
-  position: absolute;
-  top: -5px;
-  right: -10px;
+  background: red; color: white; font-size: 0.8rem; border-radius: 50%;
+  padding: 2px 6px; position: absolute; top: -5px; right: -10px;
 }
 
-/* ==================== MENÚ LATERAL ==================== */
+/* MENU LATERAL */
 .side-menu {
-  position: fixed;
-  top: 0;
-  left: -300px;
-  width: 250px;
-  height: 100%;
-  background: #CCD5AE;
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  gap: 15px;
-  transition: left 0.3s ease;
-  z-index: 1000;
+  position: fixed; top: 0; left: -300px; width: 250px; height: 100%;
+  background: #CCD5AE; display: flex; flex-direction: column;
+  padding: 20px; gap: 15px; transition: left 0.3s ease; z-index: 1000;
 }
-.side-menu.show {
-  left: 0;
-  box-shadow: 2px 0 5px rgba(0,0,0,0.2);
-}
+.side-menu.show { left: 0; box-shadow: 2px 0 5px rgba(0,0,0,0.2); }
 .side-menu button {
-  background: white;
-  padding: 10px;
-  text-align: left;
-  border-radius: 5px;
+  background: white; padding: 10px; text-align: left; border-radius: 5px;
 }
-.side-menu button:hover {
-  background: #b7c293;
-}
+.side-menu button:hover { background: #b7c293; }
 
-/* ==================== SECCIONES ==================== */
-.seccion h1 {
-  text-align: center;
-  margin: 20px 0;
-}
-.seccion h4 {
-  text-align: center;
-  margin: 20px 0;
-  font-size: 1.7rem;
-}
-/* Sección inicio */
+/* SECCIONES */
+.seccion h1, .seccion h4 { text-align: center; margin: 20px 0; }
 #inicio {
-  max-width: 800px;
-  margin: 30px auto;
-  padding: 20px;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  text-align: center;
-  font-size: 1.2rem;
+  max-width: 800px; margin: 30px auto; padding: 20px;
+  background: white; border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1); text-align: center; font-size: 1.2rem;
 }
 
-/* ==================== GRID DE PRODUCTOS ==================== */
+/* GRID DE PRODUCTOS */
 .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  max-width: 1500px;
-  gap: 24px;
-  padding: 20px;
-  margin: 0 auto;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  max-width: 1500px; gap: 24px; padding: 20px; margin: 0 auto;
   justify-items: center;
 }
 .card {
-  background: #fff;
-  border-radius: 10px;
-  padding: 15px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  text-align: center;
-  flex-direction: column;
-  align-items: center;
-  display: flex;
-  width: 100%;
-  max-width: 260px;
+  background: #fff; border-radius: 10px; padding: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1); text-align: center;
+  display: flex; flex-direction: column; align-items: center;
+  width: 100%; max-width: 260px;
 }
-.card img {
-  max-width: 100%;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 8px;
-}
-.card button {
-  background: #CCD5AE;
-  padding: 8px 12px;
-  margin-top: 10px;
-  border-radius: 5px;
-}
-.card button:hover {
-  background: #b7c293;
-}
+.card img { max-width: 100%; height: 150px; object-fit: cover; border-radius: 8px; }
+.card button { background: #CCD5AE; padding: 8px 12px; margin-top: 10px; border-radius: 5px; }
+.card button:hover { background: #b7c293; }
 .card .descripcion {
-  display: none;
-  margin-top: 10px;
-  font-size: 0.9rem;
-  background: #f2f2f2;
-  padding: 10px;
-  border-radius: 8px;
-  text-align: left;
+  display: none; margin-top: 10px; font-size: 0.9rem; background: #f2f2f2;
+  padding: 10px; border-radius: 8px; text-align: left;
 }
 
-/* ==================== CARRITO ==================== */
+/* CARRITO */
 #carrito {
-  background: white;
-  padding: 15px;
-  border-radius: 10px;
+  background: white; padding: 15px; border-radius: 10px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  max-width: 500px;
-  margin: 20px auto;
+  max-width: 600px; margin: 20px auto;
 }
-#lista {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+#lista { list-style: none; padding: 0; margin: 0; }
 .producto-carrito {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-  gap: 10px;
-  padding: 8px 0;
-  border-bottom: 1px solid #ddd;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 0.8fr;
+  gap: 10px; padding: 8px 0; border-bottom: 1px solid #ddd;
+  align-items: center;
 }
+
 .total-carrito {
-  grid-column: 1 / -1;
-  text-align: right;
-  font-size: 1.2rem;
-  padding-top: 15px;
-  border-top: 2px solid #333;
+  grid-column: 1 / -1; text-align: right; font-size: 1.2rem;
+  padding-top: 15px; border-top: 2px solid #333;
 }
+.cantidad-btn {
+  background: #CCD5AE;
+  padding: 2px 6px;
+  border-radius: 5px;
+  font-size: 0.8rem;
+}
+
 </style>
 </head>
 <body>
 
 <header>
   <div id="overlay" style="
-  display:none;
-  position:fixed;
-  top:0;left:0;width:100%;height:100%;
-  background:rgba(0,0,0,0);
-  z-index:900;"></div>
+  display:none; position:fixed; top:0;left:0;width:100%;height:100%;
+  background:rgba(0,0,0,0); z-index:900;"></div>
   
   <div class="header-bar">
-    <!-- Botón menú lateral -->
     <button class="menu-button" onclick="toggleMenu()">☰</button>
-
-    <!-- Logo y nombre -->
     <div class="logo-container">
       <img src="img/logo2.png" alt="PELUDITOS logo">
       <h2>PELUDITOS</h2>
       <h3>Dog Hair Salon</h3>
     </div>
-
-    <!-- Botón carrito -->
     <button class="cart-button" onclick="mostrarSeccion('carrito')">
       🛒 <span id="cart-count">0</span>
     </button>
   </div>
 
-  <!-- Menú lateral oculto -->
   <nav id="sideMenu" class="side-menu">
     <button onclick="mostrarSeccion('inicio')">INICIO</button>
     <button onclick="mostrarSeccion('novedades')">NOVEDADES</button>
     <button onclick="mostrarSeccion('ofertas')">OFERTAS</button>
     <button onclick="mostrarSeccion('piensos')">PIENSOS</button>
     <button onclick="mostrarSeccion('comidanatural')">COMIDA NATURAL</button>
-    <button onclick="mostrarSeccion('snacksnaturales')">SNACKS NATURALES</button>
+    <button onclick="mostrarSeccion('chuchenatural')">SNACKS NATURAL</button>
     <button onclick="mostrarSeccion('arneses')">Arneses</button>
     <button onclick="mostrarSeccion('juguetes')">Juguetes</button>
     <button onclick="mostrarSeccion('accesorios')">Accesorios</button>
@@ -245,7 +132,7 @@ header {
 </header>
 
 <main>
-  <!-- ============== SECCIÓN INICIO ============== -->
+  <!-- INICIO -->
   <div id="inicio" class="seccion">
     <h1>Bienvenido a PELUDITOS</h1>
     <p>¡Bienvenidos a la tienda online de Peluditos!</p>
@@ -256,33 +143,34 @@ header {
     <p>Explora nuestra pataforma y consiéntelos como se merecen.</p>
   </div>
 
-    <!-- ============== NOVEDADES ============== -->
+      <!-- ============== NOVEDADES ============== -->
   <div id="novedades" class="seccion" style="display:none;">
-    <h4>NOVEDADES</h4>
+    <h1>NOVEDADES</h1>
     <div class="grid">
-      <div class="card">
-        <img src="https://via.placeholder.com/200x150?text=Croquetas" alt="Croquetas">
-        <p><strong>Croquetas Premium</strong><br>30€</p>
-        <button onclick="agregarDesdeElemento(this)" data-nombre="Croquetas Premium" data-precio="30">Añadir</button>
-        <button onclick="toggleDescripcion(this)">Ver descripción</button>
-        <div class="descripcion">
-          <p>Alimento natural sin cereales.</p>
-        </div>
-      </div>
-    </div>
-  </div>
+                <!-- Alpha Spirit 7days formula-->
+       <div class="card">
+        <img src="piensos\IMG_1199.PNG" alt="7days fórmula AS">
+        <p><strong>THE ONLY ONE - 7days fórmula by Alpha Spirit</strong></p>
 
-  <!-- ============== OFERTAS ============== -->
-  <div id="ofertas" class="seccion" style="display:none;">
-    <h4>OFERTAS</h4>
-    <div class="grid">
-      <div class="card">
-        <img src="https://via.placeholder.com/200x150?text=Croquetas" alt="Croquetas">
-        <p><strong>Croquetas Premium</strong><br>30€</p>
-        <button onclick="agregarDesdeElemento(this)" data-nombre="Croquetas Premium" data-precio="30">Añadir</button>
+        <label for="formato-pienso">Formato:</label>
+        <select id="formato-pienso">
+          <option value="12" data-precio="55" data-nombre-corto="7days 12kg">12 kg - 55€</option>
+          <option value="3" data-precio="19.95" data-nombre-corto="7days 3kg">3 kg - 19,95€</option>
+        </select>
+        <button onclick="agregarConFormato(this)">Añadir</button>
+        <!-- Descripcion producto -->
         <button onclick="toggleDescripcion(this)">Ver descripción</button>
-        <div class="descripcion">
-          <p>Alimento natural sin cereales.</p>
+        <div class="descripcion" style="display: none; margin-top: 10px; font-size: 0.9rem; text-align: left;">
+          <p>Comida natural para perros adultos</p>
+            <ul>
+            <li>100% natural: Sin cereales, gluten ni harinas cárnicas</li>
+            <li>No extrusionado: Cocinado a baja temperatura con tecnología Tenderize que conserva nutrientes</li>
+            <li>Ingredientes frescos: 70% carne y pescado frescos (cerdo, pollo, pescado azul)</li>
+            <li>Alta palatabilidad y digestibilidad</li>
+            <li>Sin grasas añadidas: Solo grasas naturales de carne y pescado</li>
+            <li>Origen español: Ingredientes de empresas locales</li>
+            <li>Beneficios: Más energía, salud digestiva y pelaje brillante</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -454,8 +342,8 @@ header {
       </div>
     </div>
   </div>
-  
-  <!-- ============== COMIDA NATURAL ============== -->
+
+    <!-- ============== COMIDA NATURAL ============== -->
   <div id="comidanatural" class="seccion" style="display:none;">
     <h4>COMIDA NATURAL</h4>
     <div class="grid">
@@ -887,10 +775,10 @@ header {
       </div>
     </div>
   </div>
-  
-  <!-- ============== COMIDA NATURAL ============== -->
-  <div id="snacksnaturales" class="seccion" style="display:none;">
-    <h4>SNACKS NATURALES</h4>
+
+        <!-- ============== SNACKS NATURAL ============== -->
+  <div id="chuchenatural" class="seccion" style="display:none;">
+    <h1>NOVEDADES</h1>
     <div class="grid">
       <!-- Alpha Spirit NATURAL SNACK Duck-->
        <div class="card">
@@ -953,60 +841,27 @@ header {
         </div>
       </div>
 
-  <!-- ARNESES -->
-  <div id="arneses" class="seccion" style="display:none;">
-    <h1>Arneses</h1>
-    <div class="grid">
-      <!-- Productos arneses -->
-    </div>
-  </div>
-
-  <!-- JUGUETES -->
-  <div id="juguetes" class="seccion" style="display:none;">
-    <h1>Juguetes</h1>
-    <div class="grid">
-      <div class="card">
-        <img src="https://via.placeholder.com/200x150?text=Juguete" alt="Juguete">
-        <p><strong>Juguete interactivo</strong><br>12€</p>
-        <button 
-         onclick="agregarDesdeElemento(this)" 
-         data-nombre="Juguete interactivo" 
-          data-precio="13"
-        >Añadir</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ACCESORIOS -->
-  <div id="accesorios" class="seccion" style="display:none;">
-    <h1>Accesorios</h1>
-    <div class="grid">
-      <!-- Productos accesorios -->
     </div>
   </div>
 
   <!-- ============== CARRITO ============== -->
-    <div id="carrito" class="seccion" style="display:none;">
-      <h4>CARRITO</h4>
+  <div id="carrito" class="seccion" style="display:none;">
+    <h4>CARRITO</h4>
       <div id="carrito-container">
         <ul id="lista"></ul>
-        <div id="total" class="total-carrito">Total: 0 €</div>
       </div>
-   
+
     <div style="margin-top: 30px;">
       <h3>Finalizar pedido</h3>
-      <p style="font-size: 0.9rem; color: #666; text-align: justify;">
-        Rellena tus datos y pulsa "Enviar pedido". Te responderemos lo antes posible. El proceso de pago no es automático: nos pondremos en contacto contigo por WhatsApp en un plazo de 24 a 48 horas para formalizar el pedido y que tu peludo reciba sus compras cuanto antes.
-      </p>
-
       <form action="https://formspree.io/f/xgvzywpk" method="POST" onsubmit="return prepararEnvio()">
-        <input type="text" name="nombre" placeholder="Tu nombre" required style="width:90%; padding:8px; margin-bottom:10px;"><br>
-        <input type="email" name="email" placeholder="Tu email" required style="width:90%; padding:8px; margin-bottom:10px;"><br>
-        <input type="tel" name="telefono" placeholder="Tu teléfono" required style="width:90%; padding:8px; margin-bottom:10px;"><br>
-        <input type="text" name="direccion" placeholder="Dirección" required style="width:90%; padding:8px; margin-bottom:10px;"><br>
-        <input type="text" name="codigo_postal" placeholder="Código Postal" required style="width:90%; padding:8px; margin-bottom:10px;"><br>
-        <input type="text" name="municipio" placeholder="Municipio" required style="width:90%; padding:8px; margin-bottom:10px;"><br>
-        <input type="text" name="provincia" placeholder="Provincia" required style="width:90%; padding:8px; margin-bottom:10px;"><br>
+        <input type="hidden" name="pedido" id="pedidoInput">
+        <input type="text" name="nombre" placeholder="Tu nombre" required style="width:97%; padding:8px; margin-bottom:10px;"><br>
+        <input type="email" name="email" placeholder="Tu email" required style="width:97%; padding:8px; margin-bottom:10px;"><br>
+        <input type="tel" name="telefono" placeholder="Tu teléfono" required style="width:97%; padding:8px; margin-bottom:10px;"><br>
+        <input type="text" name="direccion" placeholder="Dirección" required style="width:97%; padding:8px; margin-bottom:10px;"><br>
+        <input type="text" name="codigo_postal" placeholder="Código Postal" required style="width:97%; padding:8px; margin-bottom:10px;"><br>
+        <input type="text" name="municipio" placeholder="Municipio" required style="width:97%; padding:8px; margin-bottom:10px;"><br>
+        <input type="text" name="provincia" placeholder="Provincia" required style="width:97%; padding:8px; margin-bottom:10px;"><br>
         
         <div style="text-align: center; padding: 10px 20px; background-color: #CCD5AE; margin-top: 10px; border-radius: 5px;">
           <button type="submit" style="padding:10px 20px;">Enviar pedido</button>
@@ -1017,21 +872,82 @@ header {
 </main>
 
 <script>
-/* ==================== LÓGICA ==================== */
 let carrito = [];
 
-// Cambiar sección visible
+const secciones = document.querySelectorAll(".seccion");
+const sideMenu = document.getElementById("sideMenu");
+const overlay = document.getElementById("overlay");
+const cartCount = document.getElementById("cart-count");
+const lista = document.getElementById("lista");
+const totalElem = document.getElementById("total");
+const pedidoInput = document.getElementById("pedidoInput");
+
+function toggleMenu() {
+  sideMenu.classList.toggle("show");
+  overlay.style.display = sideMenu.classList.contains("show") ? "block" : "none";
+}
+overlay.addEventListener("click", toggleMenu);
+
 function mostrarSeccion(id) {
-    document.querySelectorAll('.seccion').forEach(sec => {
-    sec.style.display = 'none';});
-  const seccion = document.getElementById(id);
-  if (seccion) {seccion.style.display = 'block';}
-  document.getElementById("sideMenu").classList.remove("show");
-  document.getElementById("overlay").style.display = "none";
+  secciones.forEach(sec => sec.style.display = "none");
+  document.getElementById(id).style.display = "block";
+  sideMenu.classList.remove("show");
+  overlay.style.display = "none";
 }
 
-// Actualizar lista del carrito
-function actualizarLista() {
+function mostrarMensajeFlotante() {
+  const mensaje = document.getElementById("mensaje-flotante");
+  mensaje.style.display = "block";
+  setTimeout(() => {
+    mensaje.style.display = "none";
+  }, 2000);
+}
+
+function agregarConFormato(boton) {
+  const card = boton.closest('.card');
+  const select = card.querySelector('select');
+  const opcion = select.options[select.selectedIndex];
+
+  const nombreProducto = card.querySelector('p strong').textContent.trim();
+  const peso = parseFloat(opcion.value); // peso en kg
+  const precio = parseFloat(opcion.getAttribute('data-precio'));
+
+  // id único con nombre + peso
+  const idProducto = nombreProducto + ' - ' + peso + 'kg';
+
+  // buscar producto en carrito
+  const productoExistente = carrito.find(item => item.id === idProducto);
+
+  if (productoExistente) {
+    productoExistente.cantidad++;
+  } else {
+    carrito.push({
+      id: idProducto,
+      nombre: nombreProducto,
+      peso: peso,
+      precio: precio,
+      cantidad: 1
+    });
+  }
+
+  actualizarCarrito();
+}
+
+// Calcular gastos
+function calcularPesoTotal() {
+  return carrito.reduce((sum, item) => sum + (item.peso || 0) * item.cantidad, 0);
+}
+
+// Gastos de envio
+function calcularGastosEnvio() {
+  const pesoTotal = calcularPesoTotal();
+  if (pesoTotal <= 5) return 5.00;
+  if (pesoTotal <= 15) return 8.00;
+  if (pesoTotal <= 30) return 12.00;
+  return 20.00;
+}
+
+function actualizarCarrito() {
   const lista = document.getElementById('lista');
   const contador = document.getElementById('cart-count');
   const totalUnidades = carrito.reduce((sum, item) => sum + item.cantidad, 0);
@@ -1049,12 +965,13 @@ function actualizarLista() {
     return `
     <li class="producto-carrito">
       <span>${item.nombre}</span>
+      <span>(${item.peso} kg)</span>
       <span>${item.precio.toFixed(2)}€</span>
       <span>x${item.cantidad}</span>
       <span>${subtotalItem.toFixed(2)}€</span>
       <span>
-        <button onclick="cambiarCantidad(${index}, -1)">-</button>
-        <button onclick="cambiarCantidad(${index}, 1)">+</button>
+        <button onclick="cambiarCantidad(${index}, -1)" style="padding: 2px 5px; font-size: 0.8rem;">-</button>
+        <button onclick="cambiarCantidad(${index}, 1)" style="padding: 2px 5px; font-size: 0.8rem;">+</button>
       </span>
     </li>`;
   }).join('');
@@ -1072,91 +989,52 @@ function actualizarLista() {
     </li>`;
 }
 
-// Agregar producto con select
-function agregarConFormato(boton) {
-  const card = boton.closest(".card");
-  const select = card.querySelector("select");
-  const opt = select.options[select.selectedIndex];
-  const nombreProducto = card.querySelector("strong").innerText + " " + opt.value + "kg";
-  const precio = parseFloat(opt.dataset.precio);
-  const peso = parseFloat(opt.value); // <<< añadimos el peso
 
-  const existente = carrito.find(item => item.nombre === nombreProducto);
-  if (existente) {
-    existente.cantidad++;
-  } else {
-    carrito.push({ nombre: nombreProducto, cantidad: 1, precio, peso }); // <<< guardamos el peso
-  }
-  actualizarLista();
-}
-
-// Calcular gastos
-function calcularPesoTotal() {
-  return carrito.reduce((sum, item) => sum + (item.peso || 0) * item.cantidad, 0);
-}
-
-// Gastos de envio
-function calcularGastosEnvio() {
-  const pesoTotal = calcularPesoTotal();
-  if (pesoTotal <= 5) return 5.00;
-  if (pesoTotal <= 15) return 8.00;
-  if (pesoTotal <= 30) return 12.00;
-  return 20.00;
-}
-
-// Agregar producto sin select
-function agregarDesdeElemento(btn) {
-  const nombre = btn.dataset.nombre;
-  const precio = parseFloat(btn.dataset.precio);
-  const existente = carrito.find(item => item.nombre === nombre);
-  if (existente) {
-    existente.cantidad++;
-  } else {
-    carrito.push({ nombre, cantidad: 1, precio });
-  }
-  actualizarLista();
-}
-
-// Cambiar cantidad
 function cambiarCantidad(index, delta) {
   carrito[index].cantidad += delta;
-  if (carrito[index].cantidad <= 0) carrito.splice(index, 1);
-  actualizarLista();
+  if (carrito[index].cantidad <= 0) {
+    carrito.splice(index, 1);
+  }
+  actualizarCarrito();
 }
 
-// Mostrar/ocultar descripción
 function toggleDescripcion(boton) {
   const desc = boton.nextElementSibling;
   const visible = desc.style.display === "block";
   desc.style.display = visible ? "none" : "block";
   boton.textContent = visible ? "Ver descripción" : "Ver menos";
 }
-// Ocultar menú lateral
-const menu = document.getElementById('sideMenu');
-const menuButton = document.querySelector('.menu-button');
-const overlay = document.getElementById('overlay');
 
-    // Mostrar/ocultar menú lateral
-function toggleMenu() {
-  const menu = document.getElementById("sideMenu");
-  const overlay = document.getElementById("overlay");
-  const isOpen = menu.classList.toggle("show");
-  overlay.style.display = isOpen ? "block" : "none";
+function prepararEnvio() {
+  if (carrito.length === 0) {
+    alert("El carrito está vacío");
+    return false;
+  }
+  let resumen = carrito.map(i => `${i.nombre} x${i.cantidad} (${i.peso}kg c/u) - €${(i.precio*i.cantidad).toFixed(2)}`).join("\\n");
+  let subtotal = document.getElementById("subtotal").textContent;
+  let envio = document.getElementById("envio").textContent;
+  let total = totalElem.textContent;
+  pedidoInput.value = resumen + "\\n" + subtotal + "\\n" + envio + "\\n" + total;
+  return true;
 }
 
-    // Cierra el menú si se hace clic fuera de él
-overlay.addEventListener('click', () => {
-  menu.classList.remove('show');
-  overlay.style.display = 'none';
-});
-  // Solo actuar si el menú está visible
-menu.addEventListener('click', (e) => {
-  if (e.target.tagName === 'BUTTON') {
-    menu.classList.remove('show');
-    overlay.style.display = 'none';
-  }
-});
-
 </script>
+
+<div id="mensaje-flotante" style="
+  display:none;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  z-index: 1000;
+  font-weight: bold;
+">
+  Producto añadido al carrito
+</div>
+
 </body>
 </html>
