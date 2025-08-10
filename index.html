@@ -19,18 +19,28 @@ button { cursor: pointer; border: none; color: #252525; }
 header { background: #CCD5AE; }
 .header-bar {
   display: flex; justify-content: space-between; align-items: center;
-  padding: 10px 20px; position: relative;
-}
-.menu-button { background: none; font-size: 1.8rem; color: #252525; }
+  padding: 10px 20px; position: relative;}
 .logo-container { text-align: center; }
 .logo-container img { height: 150px; display: block; margin: 0 auto; }
 .logo-container h2 { margin: 5px 0 0; font-size: 2.5rem; }
-.logo-container h3 { margin: 0; font-size: 2rem; font-family: 'Shadows Into Light'; }
-.cart-button { background: none; position: relative; font-size: 1.5rem; }
+.logo-container h3 { margin: 0; padding-bottom: 20px; font-size: 2rem; font-family: 'Shadows Into Light'; }
 .cart-button #cart-count {
   background: red; color: white; font-size: 0.8rem; border-radius: 50%;
-  padding: 2px 6px; position: absolute; top: -5px; right: -10px;
-}
+  padding: 2px 6px; position: absolute; top: -5px;}
+
+.menu-button, .cart-button {
+    position: fixed;
+    top: 100px;
+    font-size: 30px; text-align: center;
+    background: #CCD5AE;
+    border: 3px solid #CCD5AE; border-radius: 10px;
+    cursor: pointer;
+    z-index: 999;
+    transition: top 0.3s ease;}
+  .menu-button {
+    left: 30px;}
+  .cart-button {
+    right: 30px;}
 
 /* MENU LATERAL */
 .side-menu {
@@ -39,32 +49,73 @@ header { background: #CCD5AE; }
   padding: 20px; gap: 15px; transition: left 0.3s ease; z-index: 1000;
 }
 .side-menu.show { left: 0; box-shadow: 2px 0 5px rgba(0,0,0,0.2); }
-.side-menu button {
-  background: white; padding: 10px; text-align: left; border-radius: 5px;
-}
+.side-menu button { background: white; padding: 10px; text-align: left; border-radius: 5px;}
 .side-menu button:hover { background: #b7c293; }
 
-/* SECCIONES */
-.seccion h1, .seccion h4 { text-align: center; margin: 20px 0; }
+/* TÍTULOS */
+.seccion {
+  text-align: center;
+}
+.seccion h1 {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 2rem;
+}
+.seccion h4 { 
+  display: inline-block; padding: 10px; background: white; 
+  border: 3px solid #CCD5AE; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); 
+  font-size: 1.8rem; margin: 20px auto;
+}
+
+/* SECCIÓN INICIO */
 #inicio {
-  max-width: 800px; margin: 30px auto; padding: 20px;
-  background: white; border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1); text-align: center; font-size: 1.2rem;
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  text-align: center;
+  font-size: 1.3rem;
+}
+#inicio p {
+  margin-bottom: 10px;
+  line-height: 1.5;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* FILTRO DE MARCA */
+.filtro-marca-container {
+  display: flex;
+  justify-content: center; /* centra horizontalmente */
+  align-items: center;     /* alinea verticalmente */
+  gap: 10px;               /* espacio entre label y select */
+  margin-bottom: 20px;     /* espacio inferior */
+}
+.filtro-marca-container label {
+  font-weight: bold;
+}
+.filtro-marca-container select {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #CCD5AE;
 }
 
 /* GRID DE PRODUCTOS */
 .grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  max-width: 1500px; gap: 24px; padding: 20px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  max-width: 1350px; gap: 35px; padding: 20px; margin: 0 auto;
   justify-items: center;
 }
 .card {
-  background: #fff; border-radius: 10px; padding: 15px;
+  background: #fff; border: 1.5px solid #798642; border-radius: 10px; padding: 15px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1); text-align: center;
   display: flex; flex-direction: column; align-items: center;
-  width: 100%; max-width: 260px;
+  width: 100%; max-width: 300px;
 }
-.card img { max-width: 100%; height: 150px; object-fit: cover; border-radius: 8px; }
+.card img { max-width: 100%; height: 200px; object-fit: cover; border-radius: 8px; }
 .card button { background: #CCD5AE; padding: 8px 12px; margin-top: 10px; border-radius: 5px; }
 .card button:hover { background: #b7c293; }
 .card .descripcion {
@@ -85,7 +136,6 @@ header { background: #CCD5AE; }
   gap: 10px; padding: 8px 0; border-bottom: 1px solid #ddd;
   align-items: center;
 }
-
 .total-carrito {
   grid-column: 1 / -1; text-align: right; font-size: 1.2rem;
   padding-top: 15px; border-top: 2px solid #333;
@@ -96,40 +146,36 @@ header { background: #CCD5AE; }
   border-radius: 5px;
   font-size: 0.8rem;
 }
-
 </style>
 </head>
 <body>
 
 <header>
-  <div id="overlay" style="
-  display:none; position:fixed; top:0;left:0;width:100%;height:100%;
-  background:rgba(0,0,0,0); z-index:900;"></div>
-  
-  <div class="header-bar">
-    <button class="menu-button" onclick="toggleMenu()">☰</button>
-    <div class="logo-container">
-      <img src="img/logo2.png" alt="PELUDITOS logo">
-      <h2>PELUDITOS</h2>
-      <h3>Dog Hair Salon</h3>
-    </div>
-    <button class="cart-button" onclick="mostrarSeccion('carrito')">
-      🛒 <span id="cart-count">0</span>
-    </button>
+  <div class="logo-container">
+    <img src="img/logo2.png" alt="PELUDITOS logo">
+    <h2>PELUDITOS</h2>
+    <h3>Dog Hair Salon</h3>
   </div>
+</header>
 
-  <nav id="sideMenu" class="side-menu">
+<button class="menu-button" onclick="toggleMenu()">☰</button>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<button class="cart-button" onclick="mostrarSeccion('carrito')">
+  <span class="material-icons" style="font-size: 28px; vertical-align: middle; margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">shopping_cart</span>
+  <span id="cart-count">0</span>
+</button>
+
+<nav id="sideMenu" class="side-menu">
     <button onclick="mostrarSeccion('inicio')">INICIO</button>
     <button onclick="mostrarSeccion('novedades')">NOVEDADES</button>
     <button onclick="mostrarSeccion('ofertas')">OFERTAS</button>
     <button onclick="mostrarSeccion('piensos')">PIENSOS</button>
     <button onclick="mostrarSeccion('comidanatural')">COMIDA NATURAL</button>
-    <button onclick="mostrarSeccion('chuchenatural')">SNACKS NATURAL</button>
+    <button onclick="mostrarSeccion('chuchenatural')">SNACKS NATURALES</button>
     <button onclick="mostrarSeccion('arneses')">Arneses</button>
     <button onclick="mostrarSeccion('juguetes')">Juguetes</button>
     <button onclick="mostrarSeccion('accesorios')">Accesorios</button>
-  </nav>
-</header>
+</nav>
 
 <main>
   <!-- INICIO -->
@@ -145,10 +191,10 @@ header { background: #CCD5AE; }
 
       <!-- ============== NOVEDADES ============== -->
   <div id="novedades" class="seccion" style="display:none;">
-    <h1>NOVEDADES</h1>
+    <h4>NOVEDADES</h4>
     <div class="grid">
                 <!-- Alpha Spirit 7days formula-->
-       <div class="card">
+       <div class="card" data-marca="Alpha Spirit">
         <img src="piensos\IMG_1199.PNG" alt="7days fórmula AS">
         <p><strong>THE ONLY ONE - 7days fórmula by Alpha Spirit</strong></p>
 
@@ -179,9 +225,19 @@ header { background: #CCD5AE; }
   <!-- ============== PIENSOS ============== -->
   <div id="piensos" class="seccion" style="display:none;">
     <h4>PIENSOS</h4>
+      <div class="filtro-marca-container">
+        <label for="filtro-marca-piensos">Filtrar por marca:</label>
+          <select id="filtro-marca-piensos" onchange="filtrarPorMarca(this, 'piensos')">
+            <option value="">Todas</option>
+           <option value="Alpha Spirit">Alpha Spirit</option>
+            <option value="Orygo">Orygo</option>
+            <option value="Primal">Primal Spirit</option>
+          </select>
+      </div>
+
     <div class="grid">
       <!-- Alpha Spirit 7days formula-->
-       <div class="card">
+       <div class="card" data-marca="Alpha Spirit">
         <img src="piensos\IMG_1199.PNG" alt="7days fórmula AS">
         <p><strong>THE ONLY ONE - 7days fórmula by Alpha Spirit</strong></p>
 
@@ -207,7 +263,7 @@ header { background: #CCD5AE; }
         </div>
       </div>
             <!-- Alpha Spirit Multiprotein -->
-       <div class="card">
+       <div class="card" data-marca="Alpha Spirit">
         <img src="piensos\IMG_1200.PNG" alt="Multiprotein AS">
         <p><strong>THE ONLY ONE - Multi-protein by Alpha Spirit</strong></p>
 
@@ -234,7 +290,7 @@ header { background: #CCD5AE; }
         </div>
       </div>
       <!-- Alpha Spirit Pato -->
-       <div class="card">
+       <div class="card" data-marca="Alpha Spirit">
         <img src="piensos\IMG_1203.PNG" alt="Free Range Duck AS">
         <p><strong>THE ONLY ONE - Free Range Duck (Pato) by Alpha Spirit</strong></p>
 
@@ -260,7 +316,7 @@ header { background: #CCD5AE; }
         </div>
       </div>
       <!-- Alpha Spirit Pescado-->
-       <div class="card">
+       <div class="card" data-marca="Alpha Spirit">
         <img src="piensos\IMG_1201.PNG" alt="Wild fish AS">
         <p><strong>THE ONLY ONE - Wild fish (Pescado) by Alpha Spirit</strong></p>
 
@@ -287,7 +343,7 @@ header { background: #CCD5AE; }
         </div>
       </div>
       <!-- Alpha Spirit Poultry-->
-       <div class="card">
+       <div class="card" data-marca="Alpha Spirit">
         <img src="piensos\IMG_1202.PNG" alt="Poultry AS">
         <p><strong>THE ONLY ONE - Poultry (Pollo, Pavo y Pato) by Alpha Spirit</strong></p>
 
@@ -314,7 +370,7 @@ header { background: #CCD5AE; }
         </div>
       </div>
       <!-- Alpha Spirit Puppy-->
-       <div class="card">
+       <div class="card" data-marca="Alpha Spirit">
         <img src="piensos\IMG_1204.PNG" alt="Puppies AS">
         <p><strong>THE ONLY ONE - Puppies (Pollo, Pavo, Pato y Pescado) by Alpha Spirit</strong></p>
 
@@ -342,7 +398,7 @@ header { background: #CCD5AE; }
       </div>
 
       <!-- Orygo chicken-->
-      <div class="card">
+      <div class="card" data-marca="Orygo">
         <img src="piensos/IMG_1347.PNG" alt="chicken ory">
         <p><strong>ORYGO - Chicken (Pollo) by Alpha Spirit</strong></p>
 
@@ -368,7 +424,7 @@ header { background: #CCD5AE; }
         </div>
       </div>
       <!-- Orygo pork-->
-      <div class="card">
+      <div class="card" data-marca="Orygo">
         <img src="piensos/IMG_1349.PNG" alt="pork ory">
         <p><strong>ORYGO - Pork (Cerdo) by Alpha Spirit</strong></p>
 
@@ -394,7 +450,7 @@ header { background: #CCD5AE; }
         </div>
       </div>
       <!-- Orygo turkey-->
-      <div class="card">
+      <div class="card" data-marca="Orygo">
         <img src="piensos/IMG_1351.PNG" alt="turkey ory">
         <p><strong>ORYGO - Turkey (Pavo) by Alpha Spirit</strong></p>
 
@@ -420,7 +476,7 @@ header { background: #CCD5AE; }
         </div>
       </div>
       <!-- Orygo salmon-->
-      <div class="card">
+      <div class="card" data-marca="Orygo">
         <img src="piensos/IMG_1353.PNG" alt="salmon ory">
         <p><strong>ORYGO - Salmon (Salmón) by Alpha Spirit</strong></p>
 
@@ -446,7 +502,7 @@ header { background: #CCD5AE; }
         </div>
       </div>
       <!-- Orygo puppies-->
-      <div class="card">
+      <div class="card" data-marca="Orygo">
         <img src="piensos/IMG_1355.PNG" alt="puppies ory">
         <p><strong>ORYGO - Puppies (Cahorros) by Alpha Spirit</strong></p>
 
@@ -472,7 +528,7 @@ header { background: #CCD5AE; }
         </div>
       </div>
       <!-- Orygo senior-->
-      <div class="card">
+      <div class="card" data-marca="Orygo">
         <img src="piensos/IMG_1357.PNG" alt="senior ory">
         <p><strong>ORYGO - Senior by Alpha Spirit</strong></p>
 
@@ -497,15 +553,157 @@ header { background: #CCD5AE; }
           </ul>
         </div>
       </div>
+
+      <!-- Primal Wilderness-->
+      <div class="card" data-marca="Primal">
+        <img src="piensos/IMG_1355.PNG" alt="wilderness">
+        <p><strong>Primal Spirit - Wilderness by Alpha Spirit</strong></p>
+
+        <label for="formato-pienso">Formato:</label>
+        <select id="formato-pienso" onchange="cambiarImagen(this)">
+          <option value="1" data-precio="4.99" data-nombre-corto="wilderness primal 1kg" data-imagen="piensos/IMG_1355.PNG">1 kg - 4,99€</option>
+          <option value="12" data-precio="39.95" data-nombre-corto="wilderness primal 12kg" data-imagen="piensos/IMG_1356.PNG">12 kg - 39,95€</option>
+           </select>
+        <button onclick="agregarConFormato(this)">Añadir</button>
+        <!-- Descripcion producto -->
+        <button onclick="toggleDescripcion(this)">Ver descripción</button>
+        <div class="descripcion" style="display: none; margin-top: 10px; font-size: 0.9rem; text-align: left;">
+          <p>Comida natural para cachorros</p>
+            <ul>
+            <li>100% natural: Sin cereales, gluten ni harinas cárnicas</li>
+            <li>No extrusionado: Cocinado a baja temperatura con tecnología Tenderize que conserva nutrientes</li>
+            <li>Ingredientes frescos: 70% carne y pescado frescos (pavo, cerdo, pato, pescado azul e hígado de pollo)</li>
+            <li>Alta palatabilidad y digestibilidad</li>
+            <li>Sin grasas añadidas: Solo grasas naturales de carne y pescado</li>
+            <li>Origen español: Ingredientes de empresas locales</li>
+            <li>Beneficios: Crecimiento sano, energía, digestión óptima y pelaje brillante</li>
+          </ul>
+        </div>
+      </div>
+      <!-- Primal Oceanland-->
+      <div class="card" data-marca="Primal">
+        <img src="piensos/IMG_1355.PNG" alt="oceanland">
+        <p><strong>Primal Spirit - Oceanland by Alpha Spirit</strong></p>
+
+        <label for="formato-pienso">Formato:</label>
+        <select id="formato-pienso" onchange="cambiarImagen(this)">
+          <option value="1" data-precio="4.99" data-nombre-corto="oceanland primal 1kg" data-imagen="piensos/IMG_1355.PNG">1 kg - 4,99€</option>
+          <option value="12" data-precio="39.95" data-nombre-corto="oceanland primal 12kg" data-imagen="piensos/IMG_1356.PNG">12 kg - 39,95€</option>
+           </select>
+        <button onclick="agregarConFormato(this)">Añadir</button>
+        <!-- Descripcion producto -->
+        <button onclick="toggleDescripcion(this)">Ver descripción</button>
+        <div class="descripcion" style="display: none; margin-top: 10px; font-size: 0.9rem; text-align: left;">
+          <p>Comida natural para cachorros</p>
+            <ul>
+            <li>100% natural: Sin cereales, gluten ni harinas cárnicas</li>
+            <li>No extrusionado: Cocinado a baja temperatura con tecnología Tenderize que conserva nutrientes</li>
+            <li>Ingredientes frescos: 70% carne y pescado frescos (pavo, cerdo, pato, pescado azul e hígado de pollo)</li>
+            <li>Alta palatabilidad y digestibilidad</li>
+            <li>Sin grasas añadidas: Solo grasas naturales de carne y pescado</li>
+            <li>Origen español: Ingredientes de empresas locales</li>
+            <li>Beneficios: Crecimiento sano, energía, digestión óptima y pelaje brillante</li>
+          </ul>
+        </div>
+      </div>
+      <!-- Primal Rebel Fram-->
+      <div class="card" data-marca="Primal">
+        <img src="piensos/IMG_1355.PNG" alt="rebel fram">
+        <p><strong>Primal Spirit - Rebel Fram by Alpha Spirit</strong></p>
+
+        <label for="formato-pienso">Formato:</label>
+        <select id="formato-pienso" onchange="cambiarImagen(this)">
+          <option value="1" data-precio="4.99" data-nombre-corto="rebel fram primal 1kg" data-imagen="piensos/IMG_1355.PNG">1 kg - 4,99€</option>
+          <option value="12" data-precio="39.95" data-nombre-corto="rebel fram primal 12kg" data-imagen="piensos/IMG_1356.PNG">12 kg - 39,95€</option>
+           </select>
+        <button onclick="agregarConFormato(this)">Añadir</button>
+        <!-- Descripcion producto -->
+        <button onclick="toggleDescripcion(this)">Ver descripción</button>
+        <div class="descripcion" style="display: none; margin-top: 10px; font-size: 0.9rem; text-align: left;">
+          <p>Comida natural para cachorros</p>
+            <ul>
+            <li>100% natural: Sin cereales, gluten ni harinas cárnicas</li>
+            <li>No extrusionado: Cocinado a baja temperatura con tecnología Tenderize que conserva nutrientes</li>
+            <li>Ingredientes frescos: 70% carne y pescado frescos (pavo, cerdo, pato, pescado azul e hígado de pollo)</li>
+            <li>Alta palatabilidad y digestibilidad</li>
+            <li>Sin grasas añadidas: Solo grasas naturales de carne y pescado</li>
+            <li>Origen español: Ingredientes de empresas locales</li>
+            <li>Beneficios: Crecimiento sano, energía, digestión óptima y pelaje brillante</li>
+          </ul>
+        </div>
+      </div>
+      <!-- Primal Wild Waters-->
+      <div class="card" data-marca="Primal">
+        <img src="piensos/IMG_1355.PNG" alt="wild waters">
+        <p><strong>Primal Spirit - Wild Waters by Alpha Spirit</strong></p>
+
+        <label for="formato-pienso">Formato:</label>
+        <select id="formato-pienso" onchange="cambiarImagen(this)">
+          <option value="1" data-precio="4.99" data-nombre-corto="wild waters primal 1kg" data-imagen="piensos/IMG_1355.PNG">1 kg - 4,99€</option>
+          <option value="12" data-precio="39.95" data-nombre-corto="wild waters primal 12kg" data-imagen="piensos/IMG_1356.PNG">12 kg - 39,95€</option>
+           </select>
+        <button onclick="agregarConFormato(this)">Añadir</button>
+        <!-- Descripcion producto -->
+        <button onclick="toggleDescripcion(this)">Ver descripción</button>
+        <div class="descripcion" style="display: none; margin-top: 10px; font-size: 0.9rem; text-align: left;">
+          <p>Comida natural para cachorros</p>
+            <ul>
+            <li>100% natural: Sin cereales, gluten ni harinas cárnicas</li>
+            <li>No extrusionado: Cocinado a baja temperatura con tecnología Tenderize que conserva nutrientes</li>
+            <li>Ingredientes frescos: 70% carne y pescado frescos (pavo, cerdo, pato, pescado azul e hígado de pollo)</li>
+            <li>Alta palatabilidad y digestibilidad</li>
+            <li>Sin grasas añadidas: Solo grasas naturales de carne y pescado</li>
+            <li>Origen español: Ingredientes de empresas locales</li>
+            <li>Beneficios: Crecimiento sano, energía, digestión óptima y pelaje brillante</li>
+          </ul>
+        </div>
+      </div>
+      <!-- Primal Wanderlust-->
+      <div class="card" data-marca="Primal">
+        <img src="piensos/IMG_1355.PNG" alt="wanderlust">
+        <p><strong>Primal Spirit - Wanderlust by Alpha Spirit</strong></p>
+
+        <label for="formato-pienso">Formato:</label>
+        <select id="formato-pienso" onchange="cambiarImagen(this)">
+          <option value="1" data-precio="4.99" data-nombre-corto="wanderlust primal 1kg" data-imagen="piensos/IMG_1355.PNG">1 kg - 4,99€</option>
+          <option value="12" data-precio="39.95" data-nombre-corto="wanderlust primal 12kg" data-imagen="piensos/IMG_1356.PNG">12 kg - 39,95€</option>
+           </select>
+        <button onclick="agregarConFormato(this)">Añadir</button>
+        <!-- Descripcion producto -->
+        <button onclick="toggleDescripcion(this)">Ver descripción</button>
+        <div class="descripcion" style="display: none; margin-top: 10px; font-size: 0.9rem; text-align: left;">
+          <p>Comida natural para cachorros</p>
+            <ul>
+            <li>100% natural: Sin cereales, gluten ni harinas cárnicas</li>
+            <li>No extrusionado: Cocinado a baja temperatura con tecnología Tenderize que conserva nutrientes</li>
+            <li>Ingredientes frescos: 70% carne y pescado frescos (pavo, cerdo, pato, pescado azul e hígado de pollo)</li>
+            <li>Alta palatabilidad y digestibilidad</li>
+            <li>Sin grasas añadidas: Solo grasas naturales de carne y pescado</li>
+            <li>Origen español: Ingredientes de empresas locales</li>
+            <li>Beneficios: Crecimiento sano, energía, digestión óptima y pelaje brillante</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
+
 
     <!-- ============== COMIDA NATURAL ============== -->
   <div id="comidanatural" class="seccion" style="display:none;">
     <h4>COMIDA NATURAL</h4>
+      <div class="filtro-marca-container">
+        <label for="filtro-marca-piensos">Filtrar por marca:</label>
+          <select id="filtro-marca-piensos" onchange="filtrarPorMarca(this, 'comidanatural')">
+            <option value="">Todas</option>
+           <option value="AS lata">Alpha Spirit - Latas</option>
+            <option value="AS estofado">Alpha Spirit - Estofados</option>
+            <option value="Ory lata">Orygo - Latas</option>
+          </select>
+      </div>
+
     <div class="grid">
       <!-- Alpha Spirit WET rabbit with banana-->
-       <div class="card">
+       <div class="card" data-marca="AS lata">
         <img src="comidanatural/IMG_1205.PNG" alt="rabbit with banana AS">
         <p><strong>WET - Rabbit with Banana (Conejo con Plátano) by Alpha Spirit</strong></p>
 
@@ -530,7 +728,7 @@ header { background: #CCD5AE; }
         </div>
       </div>
       <!-- Alpha Spirit WET duck with apple-->
-       <div class="card">
+       <div class="card" data-marca="AS lata">
         <img src="comidanatural/IMG_1206.PNG" alt="duck with apple AS">
         <p><strong>WET - Duck with Apple (Pato con Manzana) by Alpha Spirit</strong></p>
 
@@ -555,7 +753,7 @@ header { background: #CCD5AE; }
         </div>
       </div>
       <!-- Alpha Spirit WET salmon with pineapple-->
-       <div class="card">
+       <div class="card" data-marca="AS lata">
         <img src="comidanatural/IMG_1207.PNG" alt="salmon with pineapple AS">
         <p><strong>WET - Salmon with Pineapple (Salmón con Piña) by Alpha Spirit</strong></p>
 
@@ -580,7 +778,7 @@ header { background: #CCD5AE; }
         </div>
       </div>
       <!-- Alpha Spirit WET anchovy with apple-->
-       <div class="card">
+       <div class="card" data-marca="AS lata">
         <img src="comidanatural/IMG_1208.PNG" alt="anchovy with apple AS">
         <p><strong>WET - Anchovy with Apple (Boquerón con Manzana) by Alpha Spirit</strong></p>
 
@@ -605,7 +803,7 @@ header { background: #CCD5AE; }
         </div>
       </div>
       <!-- Alpha Spirit WET turkey with pear-->
-       <div class="card">
+       <div class="card" data-marca="AS lata">
         <img src="comidanatural/IMG_1209.PNG" alt="turkey with pear AS">
         <p><strong>WET - Turkey with Pear (Pavo con Pera) by Alpha Spirit</strong></p>
 
@@ -630,7 +828,7 @@ header { background: #CCD5AE; }
         </div>
       </div>
       <!-- Alpha Spirit WET ham with melon-->
-       <div class="card">
+       <div class="card" data-marca="AS lata">
         <img src="comidanatural/IMG_1207.PNG" alt="ham with melon AS">
         <p><strong>WET - Ham with Melon (Jamón con Melón) by Alpha Spirit</strong></p>
 
@@ -655,7 +853,7 @@ header { background: #CCD5AE; }
         </div>
       </div>
       <!-- Alpha Spirit WET sardine with banana-->
-       <div class="card">
+       <div class="card" data-marca="AS lata">
         <img src="comidanatural/IMG_1211.PNG" alt="sardine with banana AS">
         <p><strong>WET - Sardine with Banana (Sardina con Plátano) by Alpha Spirit</strong></p>
 
@@ -680,7 +878,7 @@ header { background: #CCD5AE; }
         </div>
       </div>
       <!-- Alpha Spirit WET beef with melon-->
-       <div class="card">
+       <div class="card" data-marca="AS lata">
         <img src="comidanatural/IMG_1212.PNG" alt="beef with melon AS">
         <p><strong>WET - Beef with Melon (Ternera con Melón) by Alpha Spirit</strong></p>
 
@@ -705,7 +903,7 @@ header { background: #CCD5AE; }
         </div>
       </div>
       <!-- Alpha Spirit WET chicken with pineapple-->
-       <div class="card">
+       <div class="card" data-marca="AS lata">
         <img src="comidanatural/IMG_1213.PNG" alt="chicken with pineapple AS">
         <p><strong>WET - Chicken with Pineapple (Pollo con Piña) by Alpha Spirit</strong></p>
 
@@ -730,7 +928,7 @@ header { background: #CCD5AE; }
         </div>
       </div>
       <!-- Alpha Spirit WET iberico with apple-->
-       <div class="card">
+       <div class="card" data-marca="AS lata">
         <img src="comidanatural/IMG_1214.PNG" alt="iberico with apple AS">
         <p><strong>WET - Iberico with Apple (Cerdo con Manzana) by Alpha Spirit</strong></p>
 
@@ -755,7 +953,7 @@ header { background: #CCD5AE; }
         </div>
       </div>
       <!-- Alpha Spirit WET lamb with pear-->
-       <div class="card">
+       <div class="card" data-marca="AS lata">
         <img src="comidanatural/IMG_1215.PNG" alt="lamb with pear AS">
         <p><strong>WET - Lamb with Pear (Cordero con Pera) by Alpha Spirit</strong></p>
 
@@ -781,7 +979,7 @@ header { background: #CCD5AE; }
       </div>
       
       <!-- Alpha Spirit ESTOFADO pork stew-->
-       <div class="card">
+       <div class="card" data-marca="AS estofado">
         <img src="comidanatural/IMG_1317.PNG" alt="pork stew AS"
              onmouseover="this.src='comidanatural/IMG_1318.PNG'" 
              onmouseout="this.src='comidanatural/IMG_1317.PNG'">
@@ -806,7 +1004,7 @@ header { background: #CCD5AE; }
         </div>
       </div>
       <!-- Alpha Spirit ESTOFADO chicken stew-->
-       <div class="card">
+       <div class="card" data-marca="AS estofado">
         <img src="comidanatural/IMG_1319.PNG" alt="chicken stew AS"
              onmouseover="this.src='comidanatural/IMG_1320.PNG'" 
              onmouseout="this.src='comidanatural/IMG_1319.PNG'">
@@ -831,7 +1029,7 @@ header { background: #CCD5AE; }
         </div>
       </div>
       <!-- Alpha Spirit ESTOFADO pork ears stew-->
-       <div class="card">
+       <div class="card" data-marca="AS estofado">
         <img src="comidanatural/IMG_1321.PNG" alt="pork ears stew AS"
              onmouseover="this.src='comidanatural/IMG_1322.PNG'" 
              onmouseout="this.src='comidanatural/IMG_1321.PNG'">
@@ -856,7 +1054,7 @@ header { background: #CCD5AE; }
         </div>
       </div>
       <!-- Alpha Spirit ESTOFADO roast beef stew-->
-       <div class="card">
+       <div class="card" data-marca="AS estofado">
         <img src="comidanatural/IMG_1323.PNG" alt="roast beef stew AS"
              onmouseover="this.src='comidanatural/IMG_1324.PNG'" 
              onmouseout="this.src='comidanatural/IMG_1323.PNG'">
@@ -881,7 +1079,7 @@ header { background: #CCD5AE; }
         </div>
       </div>
       <!-- Alpha Spirit ESTOFADO duck stew-->
-       <div class="card">
+       <div class="card" data-marca="AS estofado">
         <img src="comidanatural/IMG_1325.PNG" alt="duck stew AS"
              onmouseover="this.src='comidanatural/IMG_1326.PNG'" 
              onmouseout="this.src='comidanatural/IMG_1325.PNG'">
@@ -906,11 +1104,36 @@ header { background: #CCD5AE; }
         </div>
       </div>
       <!-- Alpha Spirit ESTOFADO fish stew-->
-       <div class="card">
+       <div class="card" data-marca="AS estofado">
         <img src="comidanatural/IMG_1327.PNG" alt="fish stew AS"
              onmouseover="this.src='comidanatural/IMG_1328.PNG'" 
              onmouseout="this.src='comidanatural/IMG_1327.PNG'">
         <p><strong>STEW - Fish (Estofado de Pescado) by Alpha Spirit</strong></p>
+
+        <select id="formato-comidanatural" style="display:none">
+          <option value="0.280" data-precio="3.50" data-nombre-corto="Fish Stew"></option>
+        </select>
+        <p>280 gr - 3,50€</p>
+        <button onclick="agregarConFormato(this)">Añadir</button>
+        <!-- Descripcion producto -->
+        <button onclick="toggleDescripcion(this)">Ver descripción</button>
+        <div class="descripcion" style="display: none; margin-top: 10px; font-size: 0.9rem; text-align: left;">
+          <p>Estofado húmedo para perros adultos</p>
+            <ul>
+            <li>97% atún fresco en su salsa, con zanahoria, guisantes y calabaza</li>
+            <li>Natural y sabroso: Estofado ligero y jugoso con pescado y verdura</li>
+            <li>Completo y equilibrado: Enriquecido con vitaminas y minerales esenciales</li>
+            <li>Alta humedad (76,7%) y 893 kcal/kg de energía</li>
+            <li>Ideal para todas las razas adultas. Servir en 2 tomas, conservar en frío tras abrir y se puede templar antes de servir</li>
+          </ul>
+        </div>
+      </div>
+      <!-- Orygo Chicken pate-->
+       <div class="card" data-marca="Ory lata">
+        <img src="comidanatural/IMG_1327.PNG" alt="fish stew AS"
+             onmouseover="this.src='comidanatural/IMG_1328.PNG'" 
+             onmouseout="this.src='comidanatural/IMG_1327.PNG'">
+        <p><strong>STEW - Fish (Pollo con Zanahoria) by Alpha Spirit</strong></p>
 
         <select id="formato-comidanatural" style="display:none">
           <option value="0.280" data-precio="3.50" data-nombre-corto="Fish Stew"></option>
@@ -935,10 +1158,20 @@ header { background: #CCD5AE; }
 
         <!-- ============== SNACKS NATURAL ============== -->
   <div id="chuchenatural" class="seccion" style="display:none;">
-    <h1>NOVEDADES</h1>
+    <h4>SNACKS NATURALES</h4>
+      <div class="filtro-marca-container">
+        <label for="filtro-marca-piensos">Filtrar por marca:</label>
+          <select id="filtro-marca-piensos" onchange="filtrarPorMarca(this, 'chuchenatural')">
+            <option value="">Todas</option>
+           <option value="Alpha Spirit">Alpha Spirit</option>
+            <option value="Orygo">Orygo</option>
+            <option value="Primal Spirit">Primal Spirit</option>
+          </select>
+      </div>
+
     <div class="grid">
       <!-- Alpha Spirit NATURAL SNACK Duck-->
-       <div class="card">
+       <div class="card" data-marca="Alpha Spirit">
         <img src="snacksnaturales/IMG_1329.PNG" alt="duck NS AS">
         <p><strong>NATURAL SNACK - Duck (Pato) by Alpha Spirit</strong></p>
 
@@ -958,7 +1191,7 @@ header { background: #CCD5AE; }
         </div>
       </div>
       <!-- Alpha Spirit NATURAL SNACK Chicken-->
-       <div class="card">
+       <div class="card" data-marca="Alpha Spirit">
         <img src="snacksnaturales/IMG_1330.PNG" alt="chicken NS AS">
         <p><strong>NATURAL SNACK - Chicken (Pollo) by Alpha Spirit</strong></p>
 
@@ -978,7 +1211,7 @@ header { background: #CCD5AE; }
         </div>
       </div>
       <!-- Alpha Spirit NATURAL SNACK Tuna-->
-       <div class="card">
+       <div class="card" data-marca="Alpha Spirit">
         <img src="snacksnaturales/IMG_1346.PNG" alt="tuna NS AS">
         <p><strong>NATURAL SNACK - Tuna (Atún) by Alpha Spirit</strong></p>
 
@@ -1007,7 +1240,6 @@ header { background: #CCD5AE; }
       <div id="carrito-container">
         <ul id="lista"></ul>
       </div>
-
     <div style="margin-top: 30px;">
       <h3>Finalizar pedido</h3>
       <form action="https://formspree.io/f/xgvzywpk" method="POST" onsubmit="return prepararEnvio()">
@@ -1019,7 +1251,11 @@ header { background: #CCD5AE; }
         <input type="text" name="codigo_postal" placeholder="Código Postal" required style="width:97%; padding:8px; margin-bottom:10px;"><br>
         <input type="text" name="municipio" placeholder="Municipio" required style="width:97%; padding:8px; margin-bottom:10px;"><br>
         <input type="text" name="provincia" placeholder="Provincia" required style="width:97%; padding:8px; margin-bottom:10px;"><br>
-        
+
+      <p style="text-align:center; margin-top: 10px; color: #555;">
+        Pulsa "Enviar pedido" y nos pondremos en contacto contigo en 24-48 horas, ya que el proceso de pago no es automático. Somos un pequeño establecimiento y trabajaremos para preparar tu pedido lo antes posible y que a tu peludo le lleguen pronto sus deliciosas compras.
+      </p>
+
         <div style="text-align: center; padding: 10px 20px; background-color: #CCD5AE; margin-top: 10px; border-radius: 5px;">
           <button type="submit" style="padding:10px 20px;">Enviar pedido</button>
         </div>
@@ -1044,6 +1280,15 @@ function toggleMenu() {
   overlay.style.display = sideMenu.classList.contains("show") ? "block" : "none";
 }
 overlay.addEventListener("click", toggleMenu);
+
+// Ajustar posición de botones según scroll para que bajen juntos con el scroll
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY;
+  const baseTop = 100; // posición inicial desde arriba
+
+  document.querySelector('.menu-button').style.top = (baseTop + scrollY) + 'px';
+  document.querySelector('.cart-button').style.top = (baseTop + scrollY) + 'px';
+ });
 
 function mostrarSeccion(id) {
   secciones.forEach(sec => sec.style.display = "none");
@@ -1181,6 +1426,19 @@ function cambiarImagen(select) {
   const card = select.closest('.card'); // busca el contenedor de esta tarjeta
   const img = card.querySelector('img');
   img.src = imagenURL;
+}
+
+function filtrarPorMarca(select, seccionId) {
+  const marca = select.value;
+  const cards = document.querySelectorAll(`#${seccionId} .card`);
+  
+  cards.forEach(card => {
+    if (marca === "" || card.dataset.marca === marca) {
+      card.style.display = "";
+    } else {
+      card.style.display = "none";
+    }
+  });
 }
 
 </script>
