@@ -22,8 +22,8 @@ header { background: #CCD5AE; }
   padding: 10px 20px; position: relative;}
 .logo-container { text-align: center; }
 .logo-container img { height: 150px; display: block; margin: 0 auto; }
-.logo-container h2 { margin: 5px 0 0; font-size: 2.5rem; }
-.logo-container h3 { margin: 0; padding-bottom: 20px; font-size: 2rem; font-family: 'Shadows Into Light'; }
+.logo-container h2 { margin: 5px 0 0; font-size: 2.7rem; }
+.logo-container h3 { margin: 0; padding-bottom: 20px; font-size: 1.8rem; font-family: 'Shadows Into Light'; }
 .cart-button #cart-count {
   background: red; color: white; font-size: 0.8rem; border-radius: 50%;
   padding: 2px 6px; position: absolute; top: -5px;}
@@ -1128,17 +1128,131 @@ header { background: #CCD5AE; }
           </ul>
         </div>
       </div>
+
       <!-- Orygo Chicken pate-->
        <div class="card" data-marca="Ory lata">
-        <img src="comidanatural/IMG_1327.PNG" alt="fish stew AS"
-             onmouseover="this.src='comidanatural/IMG_1328.PNG'" 
-             onmouseout="this.src='comidanatural/IMG_1327.PNG'">
-        <p><strong>STEW - Fish (Pollo con Zanahoria) by Alpha Spirit</strong></p>
+        <img src="comidanatural/IMG_1359.PNG" alt="chicken lata ory">
+        <p><strong>Orygo - Chicken Pate (Pollo con Zanahoria)</strong></p>
 
         <select id="formato-comidanatural" style="display:none">
-          <option value="0.280" data-precio="3.50" data-nombre-corto="Fish Stew"></option>
+          <option value="0.400" data-precio="3.25" data-nombre-corto="Chicken Lata Ory"></option>
         </select>
-        <p>280 gr - 3,50€</p>
+        <p>400 gr - 3,25€</p>
+        <button onclick="agregarConFormato(this)">Añadir</button>
+        <!-- Descripcion producto -->
+        <button onclick="toggleDescripcion(this)">Ver descripción</button>
+        <div class="descripcion" style="display: none; margin-top: 10px; font-size: 0.9rem; text-align: left;">
+          <p>Estofado húmedo para perros adultos</p>
+            <ul>
+            <li>97% atún fresco en su salsa, con zanahoria, guisantes y calabaza</li>
+            <li>Natural y sabroso: Estofado ligero y jugoso con pescado y verdura</li>
+            <li>Completo y equilibrado: Enriquecido con vitaminas y minerales esenciales</li>
+            <li>Alta humedad (76,7%) y 893 kcal/kg de energía</li>
+            <li>Ideal para todas las razas adultas. Servir en 2 tomas, conservar en frío tras abrir y se puede templar antes de servir</li>
+          </ul>
+        </div>
+      </div>
+      <!-- Orygo Pork pate-->
+       <div class="card" data-marca="Ory lata">
+        <img src="comidanatural/IMG_1360.PNG" alt="pork lata ory">
+        <p><strong>Orygo - Pork Pate (Cerdo con Brocoli)</strong></p>
+
+        <select id="formato-comidanatural" style="display:none">
+          <option value="0.400" data-precio="3.25" data-nombre-corto="Pork Lata Ory"></option>
+        </select>
+        <p>400 gr - 3,25€</p>
+        <button onclick="agregarConFormato(this)">Añadir</button>
+        <!-- Descripcion producto -->
+        <button onclick="toggleDescripcion(this)">Ver descripción</button>
+        <div class="descripcion" style="display: none; margin-top: 10px; font-size: 0.9rem; text-align: left;">
+          <p>Estofado húmedo para perros adultos</p>
+            <ul>
+            <li>97% atún fresco en su salsa, con zanahoria, guisantes y calabaza</li>
+            <li>Natural y sabroso: Estofado ligero y jugoso con pescado y verdura</li>
+            <li>Completo y equilibrado: Enriquecido con vitaminas y minerales esenciales</li>
+            <li>Alta humedad (76,7%) y 893 kcal/kg de energía</li>
+            <li>Ideal para todas las razas adultas. Servir en 2 tomas, conservar en frío tras abrir y se puede templar antes de servir</li>
+          </ul>
+        </div>
+      </div>
+      <!-- Orygo Turkey pate-->
+       <div class="card" data-marca="Ory lata">
+        <img src="comidanatural/IMG_1361.PNG" alt="turkey lata ory">
+        <p><strong>Orygo - Turkey Pate (Pavo con Calabaza)</strong></p>
+
+        <select id="formato-comidanatural" style="display:none">
+          <option value="0.400" data-precio="3.25" data-nombre-corto="Turkey Lata Ory"></option>
+        </select>
+        <p>400 gr - 3,25€</p>
+        <button onclick="agregarConFormato(this)">Añadir</button>
+        <!-- Descripcion producto -->
+        <button onclick="toggleDescripcion(this)">Ver descripción</button>
+        <div class="descripcion" style="display: none; margin-top: 10px; font-size: 0.9rem; text-align: left;">
+          <p>Estofado húmedo para perros adultos</p>
+            <ul>
+            <li>97% atún fresco en su salsa, con zanahoria, guisantes y calabaza</li>
+            <li>Natural y sabroso: Estofado ligero y jugoso con pescado y verdura</li>
+            <li>Completo y equilibrado: Enriquecido con vitaminas y minerales esenciales</li>
+            <li>Alta humedad (76,7%) y 893 kcal/kg de energía</li>
+            <li>Ideal para todas las razas adultas. Servir en 2 tomas, conservar en frío tras abrir y se puede templar antes de servir</li>
+          </ul>
+        </div>
+      </div>
+      <!-- Orygo Salmon pate-->
+       <div class="card" data-marca="Ory lata">
+        <img src="comidanatural/IMG_1362.PNG" alt="salmon lata ory">
+        <p><strong>Orygo - Salmon Pate (Salmón con Arandanos)</strong></p>
+
+        <select id="formato-comidanatural" style="display:none">
+          <option value="0.400" data-precio="3.25" data-nombre-corto="Salmon Lata Ory"></option>
+        </select>
+        <p>400 gr - 3,25€</p>
+        <button onclick="agregarConFormato(this)">Añadir</button>
+        <!-- Descripcion producto -->
+        <button onclick="toggleDescripcion(this)">Ver descripción</button>
+        <div class="descripcion" style="display: none; margin-top: 10px; font-size: 0.9rem; text-align: left;">
+          <p>Estofado húmedo para perros adultos</p>
+            <ul>
+            <li>97% atún fresco en su salsa, con zanahoria, guisantes y calabaza</li>
+            <li>Natural y sabroso: Estofado ligero y jugoso con pescado y verdura</li>
+            <li>Completo y equilibrado: Enriquecido con vitaminas y minerales esenciales</li>
+            <li>Alta humedad (76,7%) y 893 kcal/kg de energía</li>
+            <li>Ideal para todas las razas adultas. Servir en 2 tomas, conservar en frío tras abrir y se puede templar antes de servir</li>
+          </ul>
+        </div>
+      </div>
+      <!-- Orygo Puppies pate-->
+       <div class="card" data-marca="Ory lata">
+        <img src="comidanatural/IMG_1363.PNG" alt="puppies lata ory">
+        <p><strong>Orygo - Puppies Pate (Salmón con Boniato)</strong></p>
+
+        <select id="formato-comidanatural" style="display:none">
+          <option value="0.400" data-precio="3.25" data-nombre-corto="Puppies Lata Ory"></option>
+        </select>
+        <p>400 gr - 3,25€</p>
+        <button onclick="agregarConFormato(this)">Añadir</button>
+        <!-- Descripcion producto -->
+        <button onclick="toggleDescripcion(this)">Ver descripción</button>
+        <div class="descripcion" style="display: none; margin-top: 10px; font-size: 0.9rem; text-align: left;">
+          <p>Estofado húmedo para perros adultos</p>
+            <ul>
+            <li>97% atún fresco en su salsa, con zanahoria, guisantes y calabaza</li>
+            <li>Natural y sabroso: Estofado ligero y jugoso con pescado y verdura</li>
+            <li>Completo y equilibrado: Enriquecido con vitaminas y minerales esenciales</li>
+            <li>Alta humedad (76,7%) y 893 kcal/kg de energía</li>
+            <li>Ideal para todas las razas adultas. Servir en 2 tomas, conservar en frío tras abrir y se puede templar antes de servir</li>
+          </ul>
+        </div>
+      </div>
+      <!-- Orygo Senior pate-->
+       <div class="card" data-marca="Ory lata">
+        <img src="comidanatural/IMG_1364.PNG" alt="senior lata ory">
+        <p><strong>Orygo - Senior Pate (Pollo con Legumbres)</strong></p>
+
+        <select id="formato-comidanatural" style="display:none">
+          <option value="0.400" data-precio="3.25" data-nombre-corto="Senior Lata Ory"></option>
+        </select>
+        <p>400 gr - 3,25€</p>
         <button onclick="agregarConFormato(this)">Añadir</button>
         <!-- Descripcion producto -->
         <button onclick="toggleDescripcion(this)">Ver descripción</button>
