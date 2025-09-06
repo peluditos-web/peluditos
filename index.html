@@ -29,8 +29,8 @@ header { background: #CCD5AE; }
   padding: 2px 6px; position: absolute; top: -5px;}
 
 .menu-button, .cart-button {
-    position: absolute;
-    top: 20px;
+    position: fixed;
+    top: 100px;
     font-size: 30px;
     text-align: center;
     background: #CCD5AE;
@@ -1675,11 +1675,13 @@ window.addEventListener('scroll', () => {
 function mostrarSeccion(id) {
   secciones.forEach(sec => sec.style.display = "none");
   const activa = document.getElementById(id);
-  if(!activa) return;
   activa.style.display = "block";
   sideMenu.classList.remove("show");
   overlay.style.display = "none";
-}
+  setTimeout(() => {
+   window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+})}
+
 
 function mostrarMensaje() {
   const mensaje = document.getElementById('mensaje-flotante');
