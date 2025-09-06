@@ -1624,6 +1624,7 @@ function mostrarSeccion(id) {
   document.getElementById(id).style.display = "block";
   sideMenu.classList.remove("show");
   overlay.style.display = "none";
+  window.scrollTo({ top: 0, behavior: "smooth" }); 
 }
 
 function mostrarMensaje() {
