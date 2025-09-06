@@ -1646,13 +1646,12 @@ window.addEventListener('scroll', () => {
 
 function mostrarSeccion(id) {
   secciones.forEach(sec => sec.style.display = "none");
-  document.getElementById(id).style.display = "block";
+  const activa = document.getElementById(id);
+  activa.style.display = "block";
   sideMenu.classList.remove("show");
   overlay.style.display = "none";
-  window.scrollTo({
-    top: 0,
-    left: 0,
-    behavior: "instant" });
+  window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  activa.scrollTop = 0;
 }
 
 
