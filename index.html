@@ -45,17 +45,21 @@ header { background: #CCD5AE; }
   .cart-button {
     right: 30px;}
 
-#scrollTopBtn {
+.scrollTopBtn {
     bottom: 30px;       /* distancia desde abajo */
     right: 30px;        /* distancia desde la derecha */
-    font-size: 28px;    /* tamaño como el carrito */
     display: none;      /* oculto por defecto */
-    z-index: 1000;
     position: fixed;    /* siempre flotando */
+    z-index: 1000;
+    background: #CCD5AE;
+    border: 3px solid #CCD5AE;
+    border-radius: 10px;
+    font-size: 30px;
+    cursor: pointer;
+    transition: top 0.3s ease, transform 0.2s ease;
 }
-
-#scrollTopBtn:hover {
-    background-color: #b7c293; /* igual que el hover del carrito */
+.scrollTopBtn:hover {
+    background: #b7c293;
     transform: scale(1.1);
 }
 
@@ -223,7 +227,7 @@ header { background: #CCD5AE; }
   <span id="cart-count">0</span>
 </button>
 <button id="scrollTopBtn" class="cart-button" onclick="window.scrollTo({top:0, behavior:'smooth'});">
-  ⬆️
+  <span class="material-icons" style="font-size:28px; vertical-align: middle;">arrow_upward</span>
 </button>
 
 <nav id="sideMenu" class="side-menu">
@@ -1844,7 +1848,7 @@ function filtrarPorMarca(select, seccionId) {
 const scrollBtn = document.getElementById('scrollTopBtn');
 
 window.addEventListener('scroll', () => {
-    if(window.scrollY > 200){
+    if (window.scrollY > 200) {
         scrollBtn.style.display = 'block';
     } else {
         scrollBtn.style.display = 'none';
