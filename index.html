@@ -1675,13 +1675,13 @@ window.addEventListener('scroll', () => {
 function mostrarSeccion(id) {
   secciones.forEach(sec => sec.style.display = "none");
   const activa = document.getElementById(id);
-  activa.style.display = "block";
+  if (activa) {
+    activa.style.display = "block";
+  }
   sideMenu.classList.remove("show");
   overlay.style.display = "none";
-  setTimeout(() => {
-   window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-})}
-
+  window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+}
 
 function mostrarMensaje() {
   const mensaje = document.getElementById('mensaje-flotante');
