@@ -268,9 +268,10 @@ header { background: #CCD5AE; }
         <label for="filtro-marca-piensos">Filtrar por marca:</label>
           <select id="filtro-marca-piensos" onchange="filtrarPorMarca(this, 'piensos')">
             <option value="">Todas</option>
-           <option value="Alpha Spirit">Alpha Spirit</option>
+            <option value="Alpha Spirit">Alpha Spirit</option>
             <option value="Orygo">Orygo</option>
             <option value="Primal">Primal Spirit</option>
+            <option value="NaturalGreatness">Natural Greatness</option>
           </select>
       </div>
 
@@ -790,7 +791,7 @@ header { background: #CCD5AE; }
           </ul>           
         </div>
       </div>
-            <!-- Primal Iberian Pork-->
+      <!-- Primal Iberian Pork-->
       <div class="card" data-marca="Primal">
         <img src="piensos/IMG_3076.PNG" alt="iberianpork">
         <p><strong>Primal Spirit - Cerdo Ibérico by Alpha Spirit</strong></p>
@@ -819,7 +820,7 @@ header { background: #CCD5AE; }
           </ul>           
         </div>
       </div>
-            <!-- Primal Sardine-->
+      <!-- Primal Sardine-->
       <div class="card" data-marca="Primal">
         <img src="piensos/IMG_3078.PNG" alt="sardine">
         <p><strong>Primal Spirit - Sardina by Alpha Spirit</strong></p>
@@ -846,6 +847,56 @@ header { background: #CCD5AE; }
           <ul>
             3542 kcal/kg – 14819 kJ
           </ul>           
+        </div>
+      </div>
+
+      <!-- Natural Greatness Conejo-->
+      <div class="card" data-marca="NaturalGreatness">
+        <img src="piensos/IMG_3078.PNG" alt="reciperabbit">
+        <p><strong>Natural Greatness - Receta de conejo</strong></p>
+
+        <label for="formato-pienso">Formato:</label>
+        <select id="formato-pienso">
+          <option value="2" data-precio="4.99" data-nombre-corto="reciperabbit 2kg">2 kg - 4,99€</option>
+          <option value="6" data-precio="39.95" data-nombre-corto="reciperabbit 6kg">6 kg - 39,95€</option>
+          <option value="10" data-precio="39.95" data-nombre-corto="reciperabbit 10kg">10 kg - 39,95€</option>
+           </select>
+        <button onclick="agregarConFormato(this)">Añadir</button>
+        <!-- Descripcion producto -->
+        <button onclick="toggleDescripcion(this)">Ver descripción</button>
+        <div class="descripcion">
+          <p>Pienso ultra premium sin cereales, monoproteico e hipoalergénico, ideal para perros adultos, esterilizados o senior con tendencia al sobrepeso.</p>
+          <p>Composición:</p>
+          <ul>
+            Carne deshidratada de conejo 26%, Carne fresca de conejo 10%, Hidrolizado de conejo 3%, Aceite de pollo 2%, Inulina (FOS) 0,1%, MOS 0,1%, Glucosamina 900 mg/kg, Condroitina 200 mg/kg.
+          </ul>
+          <ul>
+            Guisantes, patata, pulpa de remolacha, proteína de guisante, linaza, aceite de pescado, frutas, verduras, algas, minerales y hierbas naturales.
+          </ul>      
+        </div>
+      </div>
+      <!-- Natural Greatness Conejo MINI-->
+      <div class="card" data-marca="NaturalGreatness">
+        <img src="piensos/IMG_3078.PNG" alt="reciperabbitmini">
+        <p><strong>Natural Greatness - Receta de conejo MINI</strong></p>
+
+        <label for="formato-pienso">Formato:</label>
+        <select id="formato-pienso">
+          <option value="2" data-precio="4.99" data-nombre-corto="reciperabbit 2kg">2 kg - 4,99€</option>
+          <option value="6" data-precio="39.95" data-nombre-corto="reciperabbit 6kg">6 kg - 39,95€</option>
+           </select>
+        <button onclick="agregarConFormato(this)">Añadir</button>
+        <!-- Descripcion producto -->
+        <button onclick="toggleDescripcion(this)">Ver descripción</button>
+        <div class="descripcion">
+          <p>Pienso ultra premium sin cereales, monoproteico e hipoalergénico, diseñado para perros adultos, esterilizados o senior de razas pequeñas y medianas con tendencia al sobrepeso.</p>
+          <p>Composición:</p>
+          <ul>
+            Carne deshidratada de conejo 26%, Carne fresca de conejo 10%, Hidrolizado de conejo 3%, Aceite de pollo 2%, Inulina (FOS) 0,1%, MOS 0,1%, Glucosamina 900 mg/kg, Condroitina 200 mg/kg.
+          </ul>
+          <ul>
+            Guisantes, patata, pulpa de remolacha, proteína de guisante, linaza, aceite de pescado, frutas, verduras, algas, minerales y hierbas naturales.
+          </ul>      
         </div>
       </div>
     </div>
