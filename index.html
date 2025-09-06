@@ -57,7 +57,11 @@ header { background: #CCD5AE; }
 
 /* TÍTULOS */
 .seccion {
+  display: none;
   text-align: center;
+}
+.seccion.activa {
+  display: block;
 }
 .seccion h1 {
   text-align: center;
@@ -1673,16 +1677,13 @@ window.addEventListener('scroll', () => {
  });
 
 function mostrarSeccion(id) {
-  secciones.forEach(sec => sec.style.display = "none");
+  secciones.forEach(sec => sec.classList.remove('activa'));
   const activa = document.getElementById(id);
-  activa.style.display = "block";
+  activa.classList.add('activa');
   sideMenu.classList.remove("show");
   overlay.style.display = "none";
-  requestAnimationFrame(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-  });
+  activa.scrollIntoView({ behavior: 'instant', block: 'start' });
 }
-
 
 function mostrarMensaje() {
   const mensaje = document.getElementById('mensaje-flotante');
