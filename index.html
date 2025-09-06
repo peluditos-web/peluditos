@@ -1675,9 +1675,12 @@ function mostrarSeccion(id) {
   activa.style.display = "block";
   sideMenu.classList.remove("show");
   overlay.style.display = "none";
-  window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+  window.scrollTo(0, 0);
   activa.scrollTop = 0;
 }
+
 
 
 function mostrarMensaje() {
