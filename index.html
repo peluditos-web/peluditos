@@ -57,12 +57,9 @@ header { background: #CCD5AE; }
 
 /* TÍTULOS */
 .seccion {
-  display: none;
   text-align: center;
 }
-.seccion.activa {
-  display: block;
-}
+
 .seccion h1 {
   text-align: center;
   margin: 20px 0;
@@ -225,7 +222,7 @@ header { background: #CCD5AE; }
 
 <main>
   <!-- INICIO -->
-  <div id="inicio" class="seccion activa">
+  <div id="inicio" class="seccion">
     <h1>Bienvenido a PELUDITOS</h1>
     <p>¡Bienvenidos a la tienda online de Peluditos!</p>
     <p>Aquí Mía y Pluto se encargan de probar y aprobar todo lo que ofrecemos.</p> 
@@ -1677,12 +1674,10 @@ window.addEventListener('scroll', () => {
  });
 
 function mostrarSeccion(id) {
-  secciones.forEach(sec => sec.classList.remove('activa'));
-  const activa = document.getElementById(id);
-  activa.classList.add('activa');
+  secciones.forEach(sec => sec.style.display = "none");
+  document.getElementById(id).style.display = "block";
   sideMenu.classList.remove("show");
   overlay.style.display = "none";
-  activa.scrollIntoView({ behavior: 'instant', block: 'start' });
 }
 
 function mostrarMensaje() {
