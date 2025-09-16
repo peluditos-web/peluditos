@@ -29,7 +29,7 @@ header { background: #CCD5AE; }
   padding: 2px 6px; position: absolute; top: -5px;}
 
 .menu-button, .cart-button {
-    position: fixed;
+    position: absolute;
     top: 100px;
     font-size: 30px;
     text-align: center;
@@ -45,22 +45,18 @@ header { background: #CCD5AE; }
   .cart-button {
     right: 30px;}
 
-.scrollTopBtn {
-    bottom: 150px;       /* distancia desde abajo */
-    right: 30px;        /* distancia desde la derecha */
-    display: none;      /* oculto por defecto */
-    position: fixed;    /* siempre flotando */
-    z-index: 1000;
+.flecha-button {
+    position: fixed;
+    bottom: 100px;
+    font-size: 30px;
+    text-align: center;
     background: #CCD5AE;
     border: 3px solid #CCD5AE;
     border-radius: 10px;
-    font-size: 30px;
     cursor: pointer;
-    transition: top 0.3s ease, transform 0.2s ease;
-}
-.scrollTopBtn:hover {
-    background: #b7c293;
-    transform: scale(1.1);
+    z-index: 999;
+    transition: top 0.3s ease;
+    right: 30px;
 }
 
 /* MENU LATERAL */
@@ -218,15 +214,16 @@ header { background: #CCD5AE; }
     <h2>PELUDITOS</h2>
     <h3>Dog Hair Salon</h3>
   </div>
+  <button class="menu-button" onclick="toggleMenu()">☰</button>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <button class="cart-button" onclick="mostrarSeccion('carrito')">
+    <span class="material-icons" style="font-size: 28px; vertical-align: middle; margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">shopping_cart</span>
+    <span id="cart-count">0</span>
+  </button>
 </header>
 
-<button class="menu-button" onclick="toggleMenu()">☰</button>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<button class="cart-button" onclick="mostrarSeccion('carrito')">
-  <span class="material-icons" style="font-size: 28px; vertical-align: middle; margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px;">shopping_cart</span>
-  <span id="cart-count">0</span>
-</button>
-<button id="scrollTopBtn" class="cart-button" onclick="window.scrollTo({top:0, behavior:'smooth'});">
+
+<button class="flecha-button" onclick="window.scrollTo({top:0, behavior:'smooth'});">
   <span class="material-icons" style="font-size:28px; vertical-align: middle;">arrow_upward</span>
 </button>
 
@@ -1684,15 +1681,6 @@ function toggleMenu() {
   overlay.style.display = sideMenu.classList.contains("show") ? "block" : "none";
 }
 overlay.addEventListener("click", toggleMenu);
-
-// Ajustar posición de botones según scroll para que bajen juntos con el scroll
-window.addEventListener('scroll', () => {
-  const scrollY = window.scrollY;
-  const baseTop = 100; // posición inicial desde arriba
-
-  document.querySelector('.menu-button').style.top = (baseTop + scrollY) + 'px';
-  document.querySelector('.cart-button').style.top = (baseTop + scrollY) + 'px';
- });
 
 function mostrarSeccion(id) {
   secciones.forEach(sec => sec.style.display = "none");
